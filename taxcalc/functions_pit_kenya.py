@@ -106,9 +106,9 @@ def cal_disability_exemption(disability_exemption_threshold, is_disabled,
     return disability_exemption
 
 @iterate_jit(nopython=True)
-def cal_net_taxable_income(tax_int_div_marginal_rate, 
-                           tax_cap_gains_marginal_rate,
-                           tax_rental_income_marginal_rate,
+def cal_net_taxable_income(tax_int_div_flat_rate, 
+                           tax_cap_gains_flat_rate,
+                           tax_rental_income_flat_rate,
                            disability_exemption, 
                            emp_income_total, business_income, 
                            interest_dividend, capital_gains_1,
@@ -122,67 +122,16 @@ def cal_net_taxable_income(tax_int_div_marginal_rate,
     net_taxable_income = max(0, (emp_income_total+business_income
                           -total_deductions-disability_exemption))    
     
-    if (tax_int_div_marginal_rate==1):
+    if (tax_int_div_flat_rate==0):
         net_taxable_income = net_taxable_income + interest_dividend  
-    if (tax_cap_gains_marginal_rate==1):
+    if (tax_cap_gains_flat_rate==0):
         net_taxable_income = (net_taxable_income + max(0, capital_gains_1,
                               capital_gains_1P, capital_gains_2))  
-    if (tax_rental_income_marginal_rate==1):
+    if (tax_rental_income_flat_rate==0):
         net_taxable_income = net_taxable_income + tot_rent_income
-    
-    
+     
     net_taxable_income = max(0, net_taxable_income)    
     return net_taxable_income
-
-@iterate_jit(nopython=True)
-def cal_cgt(tax_cap_gains_marginal_rate, capital_gains_1_tax_rate,capital_gains_1P_tax_rate,
-            capital_gains_2_tax_rate, capital_gains_1, capital_gains_1P,
-            capital_gains_2, capital_gains_tax):
-    """
-    Compute Capital Gains Tax
-    """
-    if (tax_cap_gains_marginal_rate==0):      
-        capital_gains_tax = (capital_gains_1_tax_rate * capital_gains_1
-                             + capital_gains_1P_tax_rate * capital_gains_1P
-                             + capital_gains_2_tax_rate * capital_gains_2
-                             )
-    else:
-        capital_gains_tax=0
-    return capital_gains_tax
-
-@iterate_jit(nopython=True)
-def cal_rental_tax(tax_rental_income_marginal_rate, rental_income_tax_rate, rental_income_exemption_threshold,
-                   tot_rent_income, rental_income_tax):
-    """
-    Compute Affordable Housing Levy.
-    """
-    if (tax_rental_income_marginal_rate==0):       
-        if (tot_rent_income<=rental_income_exemption_threshold):
-            rental_income_tax = 0 
-        else:
-            rental_income_tax = rental_income_tax_rate * tot_rent_income
-    else:
-        rental_income_tax=0
-    return rental_income_tax
-
-@iterate_jit(nopython=True)
-def cal_WHT_interest_dividend(tax_int_div_marginal_rate, interest_dividend_WHT_rate, interest_dividend, WHT_interest_dividend):
-    """
-    Compute PIT for Capital Income.
-    """
-    if (tax_int_div_marginal_rate==0):
-        WHT_interest_dividend = interest_dividend_WHT_rate*interest_dividend
-    else:
-        WHT_interest_dividend=0
-    return WHT_interest_dividend
-
-@iterate_jit(nopython=True)
-def cal_pit_c(capital_gains_tax, rental_income_tax, WHT_interest_dividend, pitax_c):
-    """
-    Compute PIT for Capital Income.
-    """
-    pitax_c = capital_gains_tax+rental_income_tax+WHT_interest_dividend
-    return pitax_c
 
 @iterate_jit(nopython=True)
 def cal_ti_behavior(rate1, rate2, rate3, rate4, rate5, rate6, rate7, 
@@ -252,6 +201,105 @@ def cal_ti_behavior(rate1, rate2, rate3, rate4, rate5, rate6, rate7,
     frac_change_income_wage = elasticity*(frac_change_net_of_pit_rate)  
     income_wage_behavior = income_wage_l*(1+frac_change_income_wage)
     return income_wage_behavior
+
+@iterate_jit(nopython=True)
+def cal_cap_gain_income_behavior(capital_gains_1_tax_rate, capital_gains_1P_tax_rate,
+                    capital_gains_2_tax_rate, rental_income_tax_rate, 
+                    interest_dividend_WHT_rate,
+                    capital_gains_1_tax_rate_curr_law, capital_gains_1P_tax_rate_curr_law,
+                    capital_gains_2_tax_rate_curr_law, rental_income_tax_rate_curr_law, 
+                    interest_dividend_WHT_rate_curr_law,
+                    elasticity_pit_capital_income_threshold,
+                    elasticity_pit_capital_income_value, 
+                    capital_gains_1, capital_gains_1P, 
+                    capital_gains_2, interest_dividend, 
+                    tot_rent_income,
+                    capital_gains_1_behavior, capital_gains_1P_behavior, 
+                    capital_gains_2_behavior, interest_dividend_behavior, 
+                    tot_rent_income_behavior):
+    """
+    Compute taxable total income after adjusting for behavior.
+    """
+    elasticity_capital_income_threshold0 = elasticity_pit_capital_income_threshold[0]
+    elasticity_capital_income_threshold1 = elasticity_pit_capital_income_threshold[1]
+    #elasticity_taxable_income_threshold2 = elasticity_pit_taxable_income_threshold[2]
+    elasticity_capital_income_value0=elasticity_pit_capital_income_value[0]
+    elasticity_capital_income_value1=elasticity_pit_capital_income_value[1]
+    elasticity_capital_income_value2=elasticity_pit_capital_income_value[2]    
+    
+    def cal_income_behavior(income, tax_rate, tax_rate_curr_law):      
+        if income<=0:
+            elasticity=0
+        elif income<elasticity_capital_income_threshold0:
+            elasticity=elasticity_capital_income_value0
+        elif income<elasticity_capital_income_threshold1:
+            elasticity=elasticity_capital_income_value1
+        else:
+            elasticity=elasticity_capital_income_value2
+        
+        frac_change_net_of_tax_rate = ((1-tax_rate)-(1-tax_rate_curr_law))/(1-tax_rate_curr_law)
+        frac_change_in_income = elasticity*(frac_change_net_of_tax_rate)  
+        income_behavior = income*(1+frac_change_in_income)
+        return income_behavior
+    
+    capital_gains_1_behavior = cal_income_behavior(capital_gains_1, capital_gains_1_tax_rate, capital_gains_1_tax_rate_curr_law)
+    capital_gains_1P_behavior = cal_income_behavior(capital_gains_1P, capital_gains_1P_tax_rate, capital_gains_1P_tax_rate_curr_law)
+    capital_gains_2_behavior = cal_income_behavior(capital_gains_2, capital_gains_2_tax_rate, capital_gains_2_tax_rate_curr_law)
+    interest_dividend_behavior = cal_income_behavior(interest_dividend, interest_dividend_WHT_rate, interest_dividend_WHT_rate_curr_law)
+    tot_rent_income_behavior = cal_income_behavior(tot_rent_income, rental_income_tax_rate, rental_income_tax_rate_curr_law)
+    
+    
+    return capital_gains_1_behavior, capital_gains_1P_behavior, capital_gains_2_behavior, interest_dividend_behavior, tot_rent_income_behavior 
+
+@iterate_jit(nopython=True)
+def cal_cgt(tax_cap_gains_flat_rate, capital_gains_1_tax_rate,capital_gains_1P_tax_rate,
+            capital_gains_2_tax_rate, capital_gains_1_behavior, capital_gains_1P_behavior,
+            capital_gains_2_behavior, capital_gains_tax):
+    """
+    Compute Capital Gains Tax
+    """
+    if (tax_cap_gains_flat_rate==1):      
+        capital_gains_tax = (capital_gains_1_tax_rate * capital_gains_1_behavior
+                             + capital_gains_1P_tax_rate * capital_gains_1P_behavior
+                             + capital_gains_2_tax_rate * capital_gains_2_behavior
+                             )
+    else:
+        capital_gains_tax=0
+    return capital_gains_tax
+
+@iterate_jit(nopython=True)
+def cal_rental_tax(tax_rental_income_flat_rate, rental_income_tax_rate, rental_income_exemption_threshold,
+                   tot_rent_income, tot_rent_income_behavior, rental_income_tax):
+    """
+    Compute Affordable Housing Levy.
+    """
+    if (tax_rental_income_flat_rate==1):       
+        if (tot_rent_income<=rental_income_exemption_threshold):
+            rental_income_tax = 0 
+        else:
+            rental_income_tax = rental_income_tax_rate * tot_rent_income_behavior
+    else:
+        rental_income_tax=0
+    return rental_income_tax
+
+@iterate_jit(nopython=True)
+def cal_WHT_interest_dividend(tax_int_div_flat_rate, interest_dividend_WHT_rate, interest_dividend_behavior, WHT_interest_dividend):
+    """
+    Compute PIT for Capital Income.
+    """
+    if (tax_int_div_flat_rate==1):
+        WHT_interest_dividend = interest_dividend_WHT_rate*interest_dividend_behavior
+    else:
+        WHT_interest_dividend=0
+    return WHT_interest_dividend
+
+@iterate_jit(nopython=True)
+def cal_pit_c(capital_gains_tax, rental_income_tax, WHT_interest_dividend, pitax_c):
+    """
+    Compute PIT for Capital Income.
+    """
+    pitax_c = capital_gains_tax+rental_income_tax+WHT_interest_dividend
+    return pitax_c
 
 @iterate_jit(nopython=True)
 def cal_pit_w(rate1, rate2, rate3, rate4, rate5, rate6, rate7, 

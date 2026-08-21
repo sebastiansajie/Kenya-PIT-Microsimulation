@@ -10,12 +10,13 @@
     "8": "cal_total_deductions",
     "9": "cal_disability_exemption",
     "10": "cal_net_taxable_income",
-    "11": "cal_cgt",
-    "12": "cal_rental_tax",
-    "13": "cal_WHT_interest_dividend",
-    "14": "cal_pit_c",
-    "15": "cal_ti_behavior",
-    "16": "cal_pit_w",
-    "17": "cal_reliefs",
-    "18": "cal_total_pit"
+    "11": "cal_ti_behavior",
+    "12": "cal_cap_gain_income_behavior",
+    "13": "cal_cgt",
+    "14": "cal_rental_tax",
+    "15": "cal_WHT_interest_dividend",
+    "16": "cal_pit_c",
+    "17": "cal_pit_w",
+    "18": "cal_reliefs",
+    "19": "cal_total_pit"
 }

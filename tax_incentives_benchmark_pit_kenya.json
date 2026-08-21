@@ -1,34 +1,50 @@
 {
     "policy": {
         "_mortgage_deduction_threshold": {
-            "2023": [
+            "2025": [
                 0
             ]
         },
         "_AHL_deduction_rate": {
-            "2023": [
+            "2025": [
                 0
             ]
         },
         "_pension_deduction_threshold": {
-            "2023": [
+            "2025": [
                 0
             ]
         },
         "_personal_relief": {
-            "2023": [
+            "2025": [
                 0
             ]
         },
         "_insurance_relief_threshold": {
-            "2023": [
+            "2025": [
                 0
             ]
         },
         "_disability_exemption_threshold": {
-            "2023": [
+            "2025": [
+                0
+            ]
+        },
+        "_tax_cap_gains_flat_rate": {
+            "2025": [
+                0
+            ]
+        },
+        "_tax_rental_income_flat_rate": {
+            "2025": [
+                0
+            ]
+        },
+        "_tax_int_div_flat_rate": {
+            "2025": [
                 0
             ]
         }
+        
     }
 }

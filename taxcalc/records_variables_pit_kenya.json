@@ -269,6 +269,41 @@
                 "2025": "Calculated from Tax Return Data"
             }
         },
+        "capital_gains_1_behavior": {
+            "type": "float",
+            "desc": "capital_gains_1_behavior",
+            "form": {
+                "2025": "Calculated from Tax Return Data"
+            }
+        },
+        "capital_gains_2_behavior": {
+            "type": "float",
+            "desc": "capital_gains_2_behavior",
+            "form": {
+                "2025": "Calculated from Tax Return Data"
+            }
+        },
+        "capital_gains_1P_behavior": {
+            "type": "float",
+            "desc": "capital_gains_1P_behavior",
+            "form": {
+                "2025": "Calculated from Tax Return Data"
+            }
+        },
+        "tot_rent_income_behavior": {
+            "type": "float",
+            "desc": "tot_rent_income_behavior",
+            "form": {
+                "2025": "Calculated from Tax Return Data"
+            }
+        },
+        "interest_dividend_behavior": {
+            "type": "float",
+            "desc": "interest_dividend_behavior",
+            "form": {
+                "2025": "Calculated from Tax Return Data"
+            }
+        },
         "capital_gains_tax": {
             "type": "float",
             "desc": "Capital Gains Tax",
@@ -349,13 +384,6 @@
         "pitax": {
             "type": "float",
             "desc": "Total PIT",
-            "form": {
-                "2025": "Calculated by the Model"
-            }
-        },       
-        "pitax_total": {
-            "type": "float",
-            "desc": "Total PIT including tax on Capital Income",
             "form": {
                 "2025": "Calculated by the Model"
             }

@@ -1,1 +1,11 @@
-{}
+{
+  "1": {
+    "selected_item": "rental_income_tax_rate",
+    "selected_year": [
+      "2027"
+    ],
+    "selected_value": [
+      "0.15"
+    ]
+  }
+}
