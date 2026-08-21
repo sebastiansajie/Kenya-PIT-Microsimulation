@@ -378,8 +378,8 @@
         "out_of_range_action": "stop"
     },
     "_interest_dividend_WHT_rate": {
-        "long_name": "Exemption for Persons with Disabilities",
-        "description": "PIT Rate for Consumption of Other_Consumption",
+        "long_name": "Interest_dividend_WHT_rate",
+        "description": "Interest_dividend_WHT_rate",
         "itr_ref": "Income Tax Act",
         "notes": "",
         "row_var": "AYEAR",
@@ -404,7 +404,7 @@
         "out_of_range_maxmsg": "",
         "out_of_range_action": "stop"
     },
-    "_tax_int_div_marginal_rate": {
+    "_tax_int_div_flat_rate": {
         "long_name": "Switch to tax Interest_Dividend at Marginal Rates",
         "description": "Switch to tax Interest_Dividend at Marginal Rates, =0 if flat Rate, =1 if marginal rate",
         "itr_ref": "Income Tax Act",
@@ -419,7 +419,7 @@
         "col_var": "",
         "col_label": "",
         "value": [
-            0.0
+            1.0
         ],
         "boolean_value": false,
         "integer_value": false,
@@ -431,7 +431,7 @@
         "out_of_range_maxmsg": "",
         "out_of_range_action": "stop"
     },
-    "_tax_cap_gains_marginal_rate": {
+    "_tax_cap_gains_flat_rate": {
         "long_name": "Switch to tax Capital Gains at Marginal Rates",
         "description": "Switch to tax Capital Gains at Marginal Rates, =0 if flat Rate, =1 if marginal rate",
         "itr_ref": "Income Tax Act",
@@ -446,7 +446,7 @@
         "col_var": "",
         "col_label": "",
         "value": [
-            0.0
+            1.0
         ],
         "boolean_value": false,
         "integer_value": false,
@@ -458,7 +458,7 @@
         "out_of_range_maxmsg": "",
         "out_of_range_action": "stop"
     },
-    "_tax_rental_income_marginal_rate": {
+    "_tax_rental_income_flat_rate": {
         "long_name": "Switch to tax Rental Income at Marginal Rates",
         "description": "Switch to tax Rental Income at Marginal Rates, =0 if flat Rate, =1 if marginal rate",
         "itr_ref": "Income Tax Act",
@@ -473,7 +473,7 @@
         "col_var": "",
         "col_label": "",
         "value": [
-            0.0
+            1.0
         ],
         "boolean_value": false,
         "integer_value": false,
@@ -513,7 +513,7 @@
         "out_of_range_action": "stop"
     },
     "_capital_gains_1P_tax_rate": {
-        "long_name": "Capital Gains 1 Tax Rate",
+        "long_name": "Capital Gains 1P Tax Rate",
         "description": "Capital Gains 1 Tax Rate",
         "itr_ref": "Income Tax Act",
         "notes": "",
@@ -540,7 +540,7 @@
         "out_of_range_action": "stop"
     },
     "_capital_gains_2_tax_rate": {
-        "long_name": "Capital Gains 1 Tax Rate",
+        "long_name": "Capital Gains 2 Tax Rate",
         "description": "Capital Gains 1 Tax Rate",
         "itr_ref": "Income Tax Act",
         "notes": "",
@@ -810,7 +810,7 @@
         "out_of_range_action": "stop"
     },
     "_disability_exemption_threshold": {
-        "long_name": "Final Tax on Interest",
+        "long_name": "Exemption for Persons with Disabilities",
         "description": "PIT Rate for Consumption of Other_Consumption",
         "itr_ref": "Income Tax Act",
         "notes": "",
@@ -1214,6 +1214,141 @@
         "out_of_range_maxmsg": "",
         "out_of_range_action": "stop"
     },
+    "_interest_dividend_WHT_rate_curr_law": {
+        "long_name": "Interest_dividend_WHT_rate",
+        "description": "Interest_dividend_WHT_rate",
+        "itr_ref": "Income Tax Act",
+        "notes": "",
+        "row_var": "AYEAR",
+        "row_label": [
+            "2025"
+        ],
+        "start_year": 2025,
+        "cpi_inflatable": false,
+        "cpi_inflated": false,
+        "col_var": "",
+        "col_label": "",
+        "value": [
+            0.15
+        ],
+        "boolean_value": false,
+        "integer_value": false,
+        "range": {
+            "min": 0,
+            "max": 1
+        },
+        "out_of_range_minmsg": "",
+        "out_of_range_maxmsg": "",
+        "out_of_range_action": "stop"
+    },
+    "_capital_gains_1_tax_rate_curr_law": {
+        "long_name": "Capital Gains 1 Tax Rate",
+        "description": "Capital Gains 1 Tax Rate",
+        "itr_ref": "Income Tax Act",
+        "notes": "",
+        "row_var": "AYEAR",
+        "row_label": [
+            "2025"
+        ],
+        "start_year": 2025,
+        "cpi_inflatable": false,
+        "cpi_inflated": false,
+        "col_var": "",
+        "col_label": "",
+        "value": [
+            0.15
+        ],
+        "boolean_value": false,
+        "integer_value": false,
+        "range": {
+            "min": 0,
+            "max": 1
+        },
+        "out_of_range_minmsg": "",
+        "out_of_range_maxmsg": "",
+        "out_of_range_action": "stop"
+    },
+    "_capital_gains_1P_tax_rate_curr_law": {
+        "long_name": "Capital Gains 1P Tax Rate",
+        "description": "Capital Gains 1 Tax Rate",
+        "itr_ref": "Income Tax Act",
+        "notes": "",
+        "row_var": "AYEAR",
+        "row_label": [
+            "2025"
+        ],
+        "start_year": 2025,
+        "cpi_inflatable": false,
+        "cpi_inflated": false,
+        "col_var": "",
+        "col_label": "",
+        "value": [
+            0.15
+        ],
+        "boolean_value": false,
+        "integer_value": false,
+        "range": {
+            "min": 0,
+            "max": 1
+        },
+        "out_of_range_minmsg": "",
+        "out_of_range_maxmsg": "",
+        "out_of_range_action": "stop"
+    },
+    "_capital_gains_2_tax_rate_curr_law": {
+        "long_name": "Capital Gains 2 Tax Rate",
+        "description": "Capital Gains 1 Tax Rate",
+        "itr_ref": "Income Tax Act",
+        "notes": "",
+        "row_var": "AYEAR",
+        "row_label": [
+            "2025"
+        ],
+        "start_year": 2025,
+        "cpi_inflatable": false,
+        "cpi_inflated": false,
+        "col_var": "",
+        "col_label": "",
+        "value": [
+            0.15
+        ],
+        "boolean_value": false,
+        "integer_value": false,
+        "range": {
+            "min": 0,
+            "max": 1
+        },
+        "out_of_range_minmsg": "",
+        "out_of_range_maxmsg": "",
+        "out_of_range_action": "stop"
+    },
+    "_rental_income_tax_rate_curr_law": {
+        "long_name": "Rental Income Tax Rate",
+        "description": "Rental Income Tax Rate",
+        "itr_ref": "Income Tax Act",
+        "notes": "",
+        "row_var": "AYEAR",
+        "row_label": [
+            "2025"
+        ],
+        "start_year": 2025,
+        "cpi_inflatable": false,
+        "cpi_inflated": false,
+        "col_var": "",
+        "col_label": "",
+        "value": [
+            0.075
+        ],
+        "boolean_value": false,
+        "integer_value": false,
+        "range": {
+            "min": 0,
+            "max": 1
+        },
+        "out_of_range_minmsg": "",
+        "out_of_range_maxmsg": "",
+        "out_of_range_action": "stop"
+    },
     "_elasticity_pit_taxable_income_threshold": {
         "long_name": "Elasticity of Taxable Income Threshholds",
         "description": "Elasticity of Taxable Income Threshholds",
@@ -1234,8 +1369,8 @@
         ],
         "value": [
             [
-                10000,
                 100000,
+                1000000,
                 9e+99
             ]
         ],
@@ -1269,9 +1404,9 @@
         ],
         "value": [
             [
-                0.2,
-                0.2,
-                0.2
+                0.0,
+                0.0,
+                0.0
             ]
         ],
         "boolean_value": false,
@@ -1304,8 +1439,8 @@
         ],
         "value": [
             [
-                10000,
                 100000,
+                1000000,
                 9e+99
             ]
         ],
@@ -1339,9 +1474,9 @@
         ],
         "value": [
             [
-                0.2,
-                0.2,
-                0.2
+                0.0,
+                0.0,
+                0.0
             ]
         ],
         "boolean_value": false,

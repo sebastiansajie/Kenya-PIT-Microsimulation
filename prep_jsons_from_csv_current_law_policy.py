@@ -42,7 +42,7 @@ def parse_number_or_reference(value):
     # Any remaining range value is a policy-parameter reference.
     return "_" + text.lstrip("_")
     
-df = pd.read_csv("current_law_policy_input1.csv")
+df = pd.read_csv("current_law_policy_input_pit.csv")
 final_json = {}
 cols = list(df.columns)
 for idx, row in df.iterrows():
@@ -63,12 +63,12 @@ for idx, row in df.iterrows():
     if (field_name.find('elasticity')!=-1):
         item['col_label'] = ["bracket1", "bracket2", "bracket3"]
         if (field_name.find('threshold')!=-1):
-            item['value'] = [[10000, 100000, 9e99]]
+            item['value'] = [[100000, 1000000, 9e99]]
         elif (field_name.find('value')!=-1):
             if (field_name.find('food')!=-1):
-                item['value'] = [[0.4, 0.4, 0.4]]
+                item['value'] = [[0.0, 0.0, 0.0]]
             else:
-                item['value'] = [[0.2, 0.2, 0.2]]
+                item['value'] = [[0.0, 0.0, 0.0]]
     else:
         item['col_label'] = checknan(str(row['col_label']))
         item['value'] = [(row['value'])]
