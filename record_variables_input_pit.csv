@@ -1,0 +1,43 @@
+﻿field_category,field_name,required,type,desc,form,2025,cross_year,attribute
+read,id_n,TRUE,int,Unique positive numeric identifier for filing unit,,Tax Return Data,No,No
+read,Year,TRUE,int,Year,,Tax Return Data,No,No
+read,weight,FALSE,float,Weight,,Tax Return Data,No,No
+read,emp_income,FALSE,float,Employment Income,,Tax Return Data,No,No
+read,other_income,FALSE,float,Other Income,,Tax Return Data,No,No
+read,interest_dividend,FALSE,float,Interest and Dividend Income subject to Withholding Tax,,Withholding Tax Returns,No,No
+read,capital_gains_1,FALSE,float,Capital Gains Type 1,,Capital Gains Returns,No,No
+read,capital_gains_2,FALSE,float,Capital Gains Type 2,,Capital Gains Returns,No,No
+read,capital_gains_1P,FALSE,float,Capital Gains Type 1P,,Capital Gains Returns,No,No
+read,tot_rent_income,FALSE,float,Rental Income,,Rental Income Returns,No,No
+read,interest_income,FALSE,float,Interest Income,,Tax Return Data,No,No
+read,business_income,FALSE,float,Business Income,,Tax Return Data,No,No
+read,is_disabled,FALSE,int,Person with Disability,,Tax Return Data,No,No
+read,mortage_interest,FALSE,float,Mortgage Interest,,Tax Return Data,No,No
+read,home_own_saving_plan_dep,FALSE,float,home_own_saving_plan_dep,,Tax Return Data,No,No
+read,hosp_tot_deposit_year,FALSE,float,hosp_tot_deposit_year,,Tax Return Data,No,No
+read,pension_contribution,FALSE,float,Pension Contribution,,Tax Return Data,No,No
+read,prmf_contribution,FALSE,float,PRMF Contribution,,Tax Return Data,No,No
+read,insurance_relief,FALSE,float,Insurance Relief,,Tax Return Data,No,No
+calc,total_income,FALSE,float,Total Income,,Calculated from Tax Return Data,,
+calc,capital_income,FALSE,float,Capital Income,,Calculated from Tax Return Data,,
+calc,emp_income_total,FALSE,float,Incomes at Marginal Rates,,Calculated from Tax Return Data,,
+calc,mortgage_deduction,FALSE,float,Mortgage Deduction,,Calculated from Tax Return Data,,
+calc,pension_deduction,FALSE,float,Mortgage Deduction,,Calculated from Tax Return Data,,
+calc,disability_exemption,FALSE,float,disability_exemption,,Calculated from Tax Return Data,,
+calc,AHL_deduction,FALSE,float,Affordable Housing Levy Deduction,,Calculated from Tax Return Data,,
+calc,SHIF_deduction,FALSE,float,Social Health Insurance Fund Deduction,,Calculated from Tax Return Data,,
+calc,PRMF_deduction,FALSE,float,Post Retirement Medical Fund Deduction,,Calculated from Tax Return Data,,
+calc,total_deductions,FALSE,float,Total Deduction,,Calculated from Tax Return Data,,
+calc,net_taxable_income,FALSE,float,Net Taxable Income,,Calculated from Tax Return Data,,
+calc,capital_gains_tax,FALSE,float,Capital Gains Tax,,Calculated from Tax Return Data,,
+calc,rental_income_tax,FALSE,float,Rental Income Tax,,Calculated from Tax Return Data,,
+calc,WHT_interest_dividend,FALSE,float,Witholding Tax on interest and dividend,,Calculated from Tax Return Data,,
+calc,income_wage_behavior,FALSE,float,Incomes after adjusting for behavior,,Calculated from Tax Return Data,,
+calc,tax_payable_before_reliefs,FALSE,float,tax_payable_before_reliefs,,Calculated from Tax Return Data,,
+calc,total_reliefs,FALSE,float,total_reliefs,,Calculated from Tax Return Data,,
+calc,tax_payable_after_reliefs,FALSE,float,tax_payable_after_reliefs,,Calculated from Tax Return Data,,
+calc,applicable_elasticity_food,FALSE,float,Applicable elasticity based on Total Consumption_Income levels,,Calculated from Tax Return Data,,
+calc,applicable_elasticity_non_food,FALSE,float,Applicable elasticity based on Total Consumption_Income levels,,Calculated from Tax Return Data,,
+calc,pitax_c,FALSE,float,Total PIT,,Calculated by the Model,,
+calc,pitax_w,FALSE,float,Total PIT,,Calculated by the Model,,
+calc,pitax,FALSE,float,Total PIT,,Calculated by the Model,,

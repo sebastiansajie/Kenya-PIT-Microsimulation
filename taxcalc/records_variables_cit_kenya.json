@@ -1,0 +1,116 @@
+{
+    "read": {
+        "id_n": {
+            "required": true,
+            "type": "int",
+            "desc": "Unique positive numeric identifier for filing unit",
+            "form": {
+                "2025": "Tax Return Data"
+            },
+            "cross_year": "No",
+            "attribute": "No"
+        },
+        "Year": {
+            "required": true,
+            "type": "int",
+            "desc": "Year",
+            "form": {
+                "2025": "Tax Return Data"
+            },
+            "cross_year": "No",
+            "attribute": "No"
+        },
+        "weight": {
+            "required": false,
+            "type": "float",
+            "desc": "Weight",
+            "form": {
+                "2025": "Tax Return Data"
+            },
+            "cross_year": "No",
+            "attribute": "No"
+        },
+        "ADJST_TAXABLE_INCOME_M_9": {
+            "required": false,
+            "type": "float",
+            "desc": "Weight",
+            "form": {
+                "2025": "Tax Return Data"
+            },
+            "cross_year": "No",
+            "attribute": "No"
+        }
+    },
+    "calc": {
+        "newloss1": {
+            "type": "float",
+            "desc": "Carried Forward Loss Year 1",
+            "form": {
+                "2025": "Tax Return Data"
+            }
+        },
+        "newloss2": {
+            "type": "float",
+            "desc": "Carried Forward Loss Year 2",
+            "form": {
+                "2025": "Tax Return Data"
+            }
+        },
+        "newloss3": {
+            "type": "float",
+            "desc": "Carried Forward Loss Year 3",
+            "form": {
+                "2025": "Tax Return Data"
+            }
+        },
+        "newloss4": {
+            "type": "float",
+            "desc": "Carried Forward Loss Year 4",
+            "form": {
+                "2025": "Tax Return Data"
+            }
+        },
+        "newloss5": {
+            "type": "float",
+            "desc": "Carried Forward Loss Year 5",
+            "form": {
+                "2025": "Tax Return Data"
+            }
+        },
+        "newloss6": {
+            "type": "float",
+            "desc": "Carried Forward Loss Year 6",
+            "form": {
+                "2025": "Tax Return Data"
+            }
+        },
+        "newloss7": {
+            "type": "float",
+            "desc": "Carried Forward Loss Year 7",
+            "form": {
+                "2025": "Tax Return Data"
+            }
+        },
+        "newloss8": {
+            "type": "float",
+            "desc": "Carried Forward Loss Year 8",
+            "form": {
+                "2025": "Tax Return Data"
+            }
+        },
+        "newloss9": {
+            "type": "float",
+            "desc": "Carried Forward Loss Year 8",
+            "form": {
+                "2025": "Tax Return Data"
+            }
+        },        
+        "citax": {
+            "type": "float",
+            "desc": "Total PIT",
+            "form": {
+                "2025": "Calculated by the Model"
+            }
+        }
+    }
+}

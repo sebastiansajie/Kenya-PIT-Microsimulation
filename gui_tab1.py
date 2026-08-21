@@ -56,16 +56,19 @@ def initialize_vars(self):
 
     self.vars['pit_display_distribution_table_byincome'] = 0
     self.vars['pit_display_distribution_table_bydecile'] = 0
+    self.vars['pit_display_distribution_table_bytaxable_income'] = 0
     self.vars['pit_display_revenue_table'] = 1
     self.vars['pit_revenue_with_reform_file'] = 0
     
     self.vars['cit_display_distribution_table_byincome'] = 0
     self.vars['cit_display_distribution_table_bydecile'] = 0
+    self.vars['cit_display_distribution_table_bytaxable_income'] = 0    
     self.vars['cit_display_revenue_table'] = 1
     self.vars['cit_revenue_with_reform_file'] = 0
     
     self.vars['vat_display_distribution_table_byincome'] = 0
     self.vars['vat_display_distribution_table_bydecile'] = 0
+    self.vars['vat_display_distribution_table_bytaxable_income'] = 0    
     self.vars['vat_display_revenue_table'] = 1
     self.vars['pit_revenue_with_reform_file'] = 0
     
@@ -341,6 +344,37 @@ def display_entry(self, widget, tax_type):
         #self.completed_TAB1 = 1
         #self.tab6()
 
+def select_tax_type(self, event=None):
+    """Activate the tax type selected in the dropdown."""
+
+    tax_type_labels = {
+        "Personal Income Tax": "pit",
+        "Corporate Income Tax": "cit",
+        "Value Added Tax": "vat"
+    }
+
+    selected_label = self.tax_type_combo.get()
+    tax_type = tax_type_labels.get(selected_label)
+
+    if tax_type is None:
+        return
+
+    # Ensure that only one tax type is active.
+    for item in self.tax_list:
+        self.vars[item] = int(item == tax_type)
+
+    # initiate_model() currently expects a Tk variable whose value is 1.
+    selected_tax_var = tk.IntVar(value=1)
+
+    self.initiate_model(
+        selected_tax_var,
+        tax_type
+    )
+
+    # Prevent the user from reinitializing another model over the current one.
+    self.tax_type_combo.configure(state="disabled")
+    
+
 def tab1(self):    
     
     
@@ -367,9 +401,11 @@ def tab1(self):
     self.status = {}
     
     self.pos_x = [0.13, 0.40, 0.70]
-    self.block_settings_pos_x['pit'] = self.pos_x[0]
-    self.block_settings_pos_x['cit'] = self.pos_x[1]
-    self.block_settings_pos_x['vat'] = self.pos_x[2]
+    settings_position = 0.30
+    
+    self.block_settings_pos_x["pit"] = settings_position
+    self.block_settings_pos_x["cit"] = settings_position
+    self.block_settings_pos_x["vat"] = settings_position
     
     self.tax_list = ['pit', 'cit', 'vat']
     
@@ -379,12 +415,12 @@ def tab1(self):
     self.vars['cit'] = 0
     self.vars['vat'] = 0
     
-    self.status['pit'] = tk.NORMAL
-    #self.status['pit'] = tk.DISABLED
-    #self.status['cit'] = tk.NORMAL
-    self.status['cit'] = tk.DISABLED
-    #self.status['vat'] = tk.NORMAL
-    self.status['vat'] = tk.DISABLED
+    # self.status['pit'] = tk.NORMAL
+    # #self.status['pit'] = tk.DISABLED
+    # #self.status['cit'] = tk.NORMAL
+    # self.status['cit'] = tk.DISABLED
+    # #self.status['vat'] = tk.NORMAL
+    # self.status['vat'] = tk.DISABLED
     
     self.block_1_title_pos_x = 0.15
     self.block_1_title_box_y = 0.15
@@ -401,27 +437,38 @@ def tab1(self):
              font = self.fontStyle_sub_title)
     self.TAB1_root_title.place(relx = self.title_pos_x, rely = self.sub_title_pos_y, anchor = "n")
     
-    self.pit_chk = tk.IntVar()
+    self.tax_type_label = tk.Label(
+        self.TAB1,
+        text="Select Tax Type:",
+        font=self.fontStyle
+    )
     
-    self.pit_chk_box = tk.Checkbutton(self.TAB1, text='Personal Income Tax', 
-                                      font = self.fontStyle, variable=self.pit_chk,
-                                      state = self.status['pit'],
-                                      command=lambda: self.initiate_model(self.pit_chk, 'pit'))
-    self.pit_chk_box.place(relx = self.pos_x[0], rely = self.block_1_title_box_y, anchor = "w", )
-
-    self.cit_chk = tk.IntVar()
-    self.cit_chk_box = tk.Checkbutton(self.TAB1, text='Corporate Income Tax', 
-                                      font = self.fontStyle, variable=self.cit_chk,
-                                      state = self.status['cit'],
-                                      command=lambda: self.initiate_model(self.cit_chk, 'cit'))
-    self.cit_chk_box.place(relx = self.pos_x[1], rely = self.block_1_title_box_y, anchor = "w")
-
-    self.vat_chk = tk.IntVar()
-    self.vat_chk_box = tk.Checkbutton(self.TAB1, text='Value Added Tax', 
-                                      font = self.fontStyle, variable=self.vat_chk,
-                                      state = self.status['vat'],
-                                      command=lambda: self.initiate_model(self.vat_chk, 'vat'))
-    self.vat_chk_box.place(relx = self.pos_x[2], rely = self.block_1_title_box_y, anchor = "w")    
-
+    self.tax_type_label.place(
+        relx=0.40,
+        rely=self.block_1_title_box_y,
+        anchor="e"
+    )
     
-
+    self.tax_type_combo = ttk.Combobox(
+        self.TAB1,
+        values=[
+            "Personal Income Tax",
+            "Corporate Income Tax",
+            "Value Added Tax"
+        ],
+        state="readonly",
+        font=self.text_font,
+        width=25
+    )
+    
+    self.tax_type_combo.place(
+        relx=0.41,
+        rely=self.block_1_title_box_y,
+        anchor="w"
+    )
+    
+    self.tax_type_combo.bind(
+        "<<ComboboxSelected>>",
+        self.select_tax_type
+    )  
+    

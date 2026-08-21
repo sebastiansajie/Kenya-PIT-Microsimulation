@@ -84,7 +84,7 @@ calc1 = Calculator(policy=pol, records=recs, verbose=False)
 calc1.calc_all()
 
 # specify Calculator object for reform in JSON file
-reform = Calculator.read_json_param_objects('app0_reform.json', None)
+reform = Calculator.read_json_param_objects('app1_reform.json', None)
 pol.implement_reform(reform['policy'])
 calc2 = Calculator(policy=pol, records=recs, verbose=False)
 calc2.calc_all()

@@ -168,7 +168,7 @@ class Calculator(object):
             """
         if self.corprecords is not None:
             CIT_VAR_INFO_FILENAME = 'taxcalc/'+vars['cit_records_variables_filename']
-            self.max_lag_years = vars['cit_max_lag_years']
+            self.max_lag_years = int(vars['cit_max_lag_years'])
             cit_function_names_file = 'taxcalc/'+vars['cit_function_names_filename']
             f = open(cit_function_names_file)
             self.cit_function_names = json.load(f)
@@ -989,7 +989,8 @@ class Calculator(object):
         assert calc is None or isinstance(calc, Calculator)
         assert (groupby == 'weighted_deciles' or
                 groupby == 'weighted_percentiles' or
-                groupby == 'standard_income_bins')
+                groupby == 'standard_income_bins' or
+                groupby == "taxable_income_bins")
 
         attribute_types = ['All']
         if calc is not None:

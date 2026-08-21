@@ -11,21 +11,23 @@ import numpy as np
 from taxcalc.decorators import iterate_jit
 
 @iterate_jit(nopython=True)
-def cal_capital_income(interest_income,     
+def cal_capital_income(interest_dividend, capital_gains_1, capital_gains_2,
+                       capital_gains_1P, tot_rent_income,
                            capital_income):
     """
     Compute total gross income.
     """
-    capital_income = (interest_income)
+    capital_income = (interest_dividend+ capital_gains_1+capital_gains_2+
+                           capital_gains_1P+tot_rent_income)
     return capital_income
 
 @iterate_jit(nopython=True)
-def cal_total_income(emp_income, interest_income, business_income,     
+def cal_total_income(emp_income, capital_income, business_income,     
                            total_income):
     """
     Compute total gross income.
     """
-    total_income = (emp_income+interest_income)
+    total_income = (emp_income+capital_income+business_income)
     return total_income
 
 @iterate_jit(nopython=True)
@@ -37,12 +39,12 @@ def cal_emp_income(emp_income, emp_income_total):
     return emp_income_total
 
 @iterate_jit(nopython=True)
-def cal_mortgage_deduction(mortgage_deduction_threshold, mortage_interest, home_own_saving_plan_dep,     
+def cal_mortgage_deduction(mortgage_deduction_threshold, mortage_interest,     
                            mortgage_deduction):
     """
     Compute total gross income.
     """
-    mortgage_deduction = min(mortgage_deduction_threshold, max(mortage_interest, home_own_saving_plan_dep))
+    mortgage_deduction = min(mortgage_deduction_threshold, mortage_interest)
     return mortgage_deduction
 
 @iterate_jit(nopython=True)
@@ -55,21 +57,40 @@ def cal_pension_deduction(pension_deduction_threshold, pension_contribution,
     return pension_deduction
 
 @iterate_jit(nopython=True)
-def cal_ahl_deduction(AHL_deduction_rate, total_income,     
+def cal_AHL_deduction(AHL_deduction_rate, emp_income,     
                            AHL_deduction):
     """
     Compute Affordable Housing Levy.
     """
-    AHL_deduction = AHL_deduction_rate * total_income
+    AHL_deduction = AHL_deduction_rate * emp_income
     return AHL_deduction
 
 @iterate_jit(nopython=True)
-def cal_total_deductions(mortgage_deduction, pension_deduction, hosp_tot_deposit_year, AHL_deduction,  
-                           total_deductions):
+def cal_SHIF_deduction(SHIF_deduction_rate, emp_income,     
+                           SHIF_deduction):
+    """
+    Compute Affordable Housing Levy.
+    """
+    SHIF_deduction = SHIF_deduction_rate * emp_income
+    return SHIF_deduction
+
+@iterate_jit(nopython=True)
+def cal_PRMF_deduction(PRMF_deduction_threshold, prmf_contribution,     
+                           PRMF_deduction):
+    """
+    Compute Affordable Housing Levy.
+    """
+    PRMF_deduction = min(PRMF_deduction_threshold, prmf_contribution)
+    return PRMF_deduction
+
+@iterate_jit(nopython=True)
+def cal_total_deductions(mortgage_deduction, pension_deduction, AHL_deduction,  
+                           SHIF_deduction, PRMF_deduction, total_deductions):
     """
     Compute total gross income.
     """
-    total_deductions = mortgage_deduction+pension_deduction+AHL_deduction+hosp_tot_deposit_year
+    total_deductions = (mortgage_deduction+pension_deduction
+                        +AHL_deduction + SHIF_deduction+PRMF_deduction)
     return total_deductions
 
 @iterate_jit(nopython=True)
@@ -85,21 +106,82 @@ def cal_disability_exemption(disability_exemption_threshold, is_disabled,
     return disability_exemption
 
 @iterate_jit(nopython=True)
-def cal_net_taxable_income(disability_exemption, emp_income_total, business_income, total_deductions,     
+def cal_net_taxable_income(tax_int_div_marginal_rate, 
+                           tax_cap_gains_marginal_rate,
+                           tax_rental_income_marginal_rate,
+                           disability_exemption, 
+                           emp_income_total, business_income, 
+                           interest_dividend, capital_gains_1,
+                           capital_gains_1P, capital_gains_2,
+                           tot_rent_income,
+                           total_deductions,     
                            net_taxable_income):
     """
     Compute total gross income.
     """
     net_taxable_income = max(0, (emp_income_total+business_income
-                          -total_deductions-disability_exemption))
+                          -total_deductions-disability_exemption))    
+    
+    if (tax_int_div_marginal_rate==1):
+        net_taxable_income = net_taxable_income + interest_dividend  
+    if (tax_cap_gains_marginal_rate==1):
+        net_taxable_income = (net_taxable_income + max(0, capital_gains_1,
+                              capital_gains_1P, capital_gains_2))  
+    if (tax_rental_income_marginal_rate==1):
+        net_taxable_income = net_taxable_income + tot_rent_income
+    
+    
+    net_taxable_income = max(0, net_taxable_income)    
     return net_taxable_income
 
 @iterate_jit(nopython=True)
-def cal_pit_c(interest_WHT_rate, capital_income, pitax_c):
+def cal_cgt(tax_cap_gains_marginal_rate, capital_gains_1_tax_rate,capital_gains_1P_tax_rate,
+            capital_gains_2_tax_rate, capital_gains_1, capital_gains_1P,
+            capital_gains_2, capital_gains_tax):
+    """
+    Compute Capital Gains Tax
+    """
+    if (tax_cap_gains_marginal_rate==0):      
+        capital_gains_tax = (capital_gains_1_tax_rate * capital_gains_1
+                             + capital_gains_1P_tax_rate * capital_gains_1P
+                             + capital_gains_2_tax_rate * capital_gains_2
+                             )
+    else:
+        capital_gains_tax=0
+    return capital_gains_tax
+
+@iterate_jit(nopython=True)
+def cal_rental_tax(tax_rental_income_marginal_rate, rental_income_tax_rate, rental_income_exemption_threshold,
+                   tot_rent_income, rental_income_tax):
+    """
+    Compute Affordable Housing Levy.
+    """
+    if (tax_rental_income_marginal_rate==0):       
+        if (tot_rent_income<=rental_income_exemption_threshold):
+            rental_income_tax = 0 
+        else:
+            rental_income_tax = rental_income_tax_rate * tot_rent_income
+    else:
+        rental_income_tax=0
+    return rental_income_tax
+
+@iterate_jit(nopython=True)
+def cal_WHT_interest_dividend(tax_int_div_marginal_rate, interest_dividend_WHT_rate, interest_dividend, WHT_interest_dividend):
     """
     Compute PIT for Capital Income.
     """
-    pitax_c = interest_WHT_rate*capital_income
+    if (tax_int_div_marginal_rate==0):
+        WHT_interest_dividend = interest_dividend_WHT_rate*interest_dividend
+    else:
+        WHT_interest_dividend=0
+    return WHT_interest_dividend
+
+@iterate_jit(nopython=True)
+def cal_pit_c(capital_gains_tax, rental_income_tax, WHT_interest_dividend, pitax_c):
+    """
+    Compute PIT for Capital Income.
+    """
+    pitax_c = capital_gains_tax+rental_income_tax+WHT_interest_dividend
     return pitax_c
 
 @iterate_jit(nopython=True)
@@ -196,6 +278,7 @@ def cal_reliefs(personal_relief, insurance_relief_threshold, insurance_relief,
     """
     total_reliefs = personal_relief + min(insurance_relief_threshold, insurance_relief)
     return total_reliefs
+
 
 @iterate_jit(nopython=True)
 def cal_total_pit(pitax_w, pitax_c, total_reliefs, pitax):

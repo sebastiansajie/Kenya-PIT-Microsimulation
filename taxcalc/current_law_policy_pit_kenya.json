@@ -2,13 +2,13 @@
     "_rate1": {
         "long_name": "Marginal PIT Rate1",
         "description": "PIT Rate for Consumption of Food",
-        "itr_ref": "PIT Act",
+        "itr_ref": "Income Tax Act",
         "notes": "",
         "row_var": "AYEAR",
         "row_label": [
-            "2023"
+            "2025"
         ],
-        "start_year": 2023,
+        "start_year": 2025,
         "cpi_inflatable": false,
         "cpi_inflated": false,
         "col_var": "",
@@ -20,7 +20,7 @@
         "integer_value": false,
         "range": {
             "min": 0,
-            "max": 1.0
+            "max": 1
         },
         "out_of_range_minmsg": "",
         "out_of_range_maxmsg": "",
@@ -29,13 +29,13 @@
     "_rate2": {
         "long_name": "Marginal PIT Rate2",
         "description": "PIT Rate for Consumption of Alcohol_Tobacco",
-        "itr_ref": "PIT Act",
+        "itr_ref": "Income Tax Act",
         "notes": "",
         "row_var": "AYEAR",
         "row_label": [
-            "2023"
+            "2025"
         ],
-        "start_year": 2023,
+        "start_year": 2025,
         "cpi_inflatable": false,
         "cpi_inflated": false,
         "col_var": "",
@@ -47,7 +47,7 @@
         "integer_value": false,
         "range": {
             "min": 0,
-            "max": 1.0
+            "max": 1
         },
         "out_of_range_minmsg": "",
         "out_of_range_maxmsg": "",
@@ -56,13 +56,13 @@
     "_rate3": {
         "long_name": "Marginal PIT Rate3",
         "description": "PIT Rate for Consumption of Clothing_Footwear",
-        "itr_ref": "PIT Act",
+        "itr_ref": "Income Tax Act",
         "notes": "",
         "row_var": "AYEAR",
         "row_label": [
-            "2023"
+            "2025"
         ],
-        "start_year": 2023,
+        "start_year": 2025,
         "cpi_inflatable": false,
         "cpi_inflated": false,
         "col_var": "",
@@ -74,7 +74,7 @@
         "integer_value": false,
         "range": {
             "min": 0,
-            "max": 1.0
+            "max": 1
         },
         "out_of_range_minmsg": "",
         "out_of_range_maxmsg": "",
@@ -83,13 +83,13 @@
     "_rate4": {
         "long_name": "Marginal PIT Rate4",
         "description": "PIT Rate for Consumption of Housing",
-        "itr_ref": "PIT Act",
+        "itr_ref": "Income Tax Act",
         "notes": "",
         "row_var": "AYEAR",
         "row_label": [
-            "2023"
+            "2025"
         ],
-        "start_year": 2023,
+        "start_year": 2025,
         "cpi_inflatable": false,
         "cpi_inflated": false,
         "col_var": "",
@@ -101,7 +101,7 @@
         "integer_value": false,
         "range": {
             "min": 0,
-            "max": 1.0
+            "max": 1
         },
         "out_of_range_minmsg": "",
         "out_of_range_maxmsg": "",
@@ -110,13 +110,13 @@
     "_rate5": {
         "long_name": "Marginal PIT Rate5",
         "description": "PIT Rate for Consumption of Household_Goods_Services",
-        "itr_ref": "PIT Act",
+        "itr_ref": "Income Tax Act",
         "notes": "",
         "row_var": "AYEAR",
         "row_label": [
-            "2023"
+            "2025"
         ],
-        "start_year": 2023,
+        "start_year": 2025,
         "cpi_inflatable": false,
         "cpi_inflated": false,
         "col_var": "",
@@ -128,7 +128,7 @@
         "integer_value": false,
         "range": {
             "min": 0,
-            "max": 1.0
+            "max": 1
         },
         "out_of_range_minmsg": "",
         "out_of_range_maxmsg": "",
@@ -137,13 +137,13 @@
     "_rate6": {
         "long_name": "Marginal PIT Rate6",
         "description": "PIT Rate for Consumption of Household_Goods_Services",
-        "itr_ref": "PIT Act",
+        "itr_ref": "Income Tax Act",
         "notes": "",
         "row_var": "AYEAR",
         "row_label": [
-            "2023"
+            "2025"
         ],
-        "start_year": 2023,
+        "start_year": 2025,
         "cpi_inflatable": false,
         "cpi_inflated": false,
         "col_var": "",
@@ -155,7 +155,7 @@
         "integer_value": false,
         "range": {
             "min": 0,
-            "max": 1.0
+            "max": 1
         },
         "out_of_range_minmsg": "",
         "out_of_range_maxmsg": "",
@@ -164,13 +164,13 @@
     "_rate7": {
         "long_name": "Marginal PIT Rate7",
         "description": "PIT Rate for Consumption of Household_Goods_Services",
-        "itr_ref": "PIT Act",
+        "itr_ref": "Income Tax Act",
         "notes": "",
         "row_var": "AYEAR",
         "row_label": [
-            "2023"
+            "2025"
         ],
-        "start_year": 2023,
+        "start_year": 2025,
         "cpi_inflatable": false,
         "cpi_inflated": false,
         "col_var": "",
@@ -182,7 +182,7 @@
         "integer_value": false,
         "range": {
             "min": 0,
-            "max": 1.0
+            "max": 1
         },
         "out_of_range_minmsg": "",
         "out_of_range_maxmsg": "",
@@ -191,13 +191,13 @@
     "_tbrk1": {
         "long_name": "PIT Threshold1",
         "description": "PIT Rate for Consumption of Health",
-        "itr_ref": "PIT Act",
+        "itr_ref": "Income Tax Act",
         "notes": "",
         "row_var": "AYEAR",
         "row_label": [
-            "2023"
+            "2025"
         ],
-        "start_year": 2023,
+        "start_year": 2025,
         "cpi_inflatable": false,
         "cpi_inflated": false,
         "col_var": "",
@@ -218,13 +218,13 @@
     "_tbrk2": {
         "long_name": "PIT Threshold2",
         "description": "PIT Rate for Consumption of Transport",
-        "itr_ref": "PIT Act",
+        "itr_ref": "Income Tax Act",
         "notes": "",
         "row_var": "AYEAR",
         "row_label": [
-            "2023"
+            "2025"
         ],
-        "start_year": 2023,
+        "start_year": 2025,
         "cpi_inflatable": false,
         "cpi_inflated": false,
         "col_var": "",
@@ -245,13 +245,13 @@
     "_tbrk3": {
         "long_name": "PIT Threshold3",
         "description": "PIT Rate for Consumption of Communication",
-        "itr_ref": "PIT Act",
+        "itr_ref": "Income Tax Act",
         "notes": "",
         "row_var": "AYEAR",
         "row_label": [
-            "2023"
+            "2025"
         ],
-        "start_year": 2023,
+        "start_year": 2025,
         "cpi_inflatable": false,
         "cpi_inflated": false,
         "col_var": "",
@@ -272,13 +272,13 @@
     "_tbrk4": {
         "long_name": "PIT Threshold4",
         "description": "PIT Rate for Consumption of Recreation_Culture",
-        "itr_ref": "PIT Act",
+        "itr_ref": "Income Tax Act",
         "notes": "",
         "row_var": "AYEAR",
         "row_label": [
-            "2023"
+            "2025"
         ],
-        "start_year": 2023,
+        "start_year": 2025,
         "cpi_inflatable": false,
         "cpi_inflated": false,
         "col_var": "",
@@ -299,19 +299,19 @@
     "_tbrk5": {
         "long_name": "PIT Threshold5",
         "description": "PIT Rate for Consumption of Education",
-        "itr_ref": "PIT Act",
+        "itr_ref": "Income Tax Act",
         "notes": "",
         "row_var": "AYEAR",
         "row_label": [
-            "2023"
+            "2025"
         ],
-        "start_year": 2023,
+        "start_year": 2025,
         "cpi_inflatable": false,
         "cpi_inflated": false,
         "col_var": "",
         "col_label": "",
         "value": [
-            1e+99
+            1.0000000000000001e+99
         ],
         "boolean_value": false,
         "integer_value": false,
@@ -326,19 +326,19 @@
     "_tbrk6": {
         "long_name": "PIT Threshold6",
         "description": "PIT Rate for Consumption of Education",
-        "itr_ref": "PIT Act",
+        "itr_ref": "Income Tax Act",
         "notes": "",
         "row_var": "AYEAR",
         "row_label": [
-            "2023"
+            "2025"
         ],
-        "start_year": 2023,
+        "start_year": 2025,
         "cpi_inflatable": false,
         "cpi_inflated": false,
         "col_var": "",
         "col_label": "",
         "value": [
-            2e+99
+            2.0000000000000002e+99
         ],
         "boolean_value": false,
         "integer_value": false,
@@ -353,13 +353,13 @@
     "_tbrk7": {
         "long_name": "PIT Threshold7",
         "description": "PIT Rate for Consumption of Education",
-        "itr_ref": "PIT Act",
+        "itr_ref": "Income Tax Act",
         "notes": "",
         "row_var": "AYEAR",
         "row_label": [
-            "2023"
+            "2025"
         ],
-        "start_year": 2023,
+        "start_year": 2025,
         "cpi_inflatable": false,
         "cpi_inflated": false,
         "col_var": "",
@@ -377,16 +377,16 @@
         "out_of_range_maxmsg": "",
         "out_of_range_action": "stop"
     },
-    "_interest_WHT_rate": {
+    "_interest_dividend_WHT_rate": {
         "long_name": "Exemption for Persons with Disabilities",
         "description": "PIT Rate for Consumption of Other_Consumption",
-        "itr_ref": "PIT Act",
+        "itr_ref": "Income Tax Act",
         "notes": "",
         "row_var": "AYEAR",
         "row_label": [
-            "2023"
+            "2025"
         ],
-        "start_year": 2023,
+        "start_year": 2025,
         "cpi_inflatable": false,
         "cpi_inflated": false,
         "col_var": "",
@@ -398,7 +398,304 @@
         "integer_value": false,
         "range": {
             "min": 0,
-            "max": 1.0
+            "max": 1
+        },
+        "out_of_range_minmsg": "",
+        "out_of_range_maxmsg": "",
+        "out_of_range_action": "stop"
+    },
+    "_tax_int_div_marginal_rate": {
+        "long_name": "Switch to tax Interest_Dividend at Marginal Rates",
+        "description": "Switch to tax Interest_Dividend at Marginal Rates, =0 if flat Rate, =1 if marginal rate",
+        "itr_ref": "Income Tax Act",
+        "notes": "",
+        "row_var": "AYEAR",
+        "row_label": [
+            "2025"
+        ],
+        "start_year": 2025,
+        "cpi_inflatable": false,
+        "cpi_inflated": false,
+        "col_var": "",
+        "col_label": "",
+        "value": [
+            0.0
+        ],
+        "boolean_value": false,
+        "integer_value": false,
+        "range": {
+            "min": 0,
+            "max": 1
+        },
+        "out_of_range_minmsg": "",
+        "out_of_range_maxmsg": "",
+        "out_of_range_action": "stop"
+    },
+    "_tax_cap_gains_marginal_rate": {
+        "long_name": "Switch to tax Capital Gains at Marginal Rates",
+        "description": "Switch to tax Capital Gains at Marginal Rates, =0 if flat Rate, =1 if marginal rate",
+        "itr_ref": "Income Tax Act",
+        "notes": "",
+        "row_var": "AYEAR",
+        "row_label": [
+            "2025"
+        ],
+        "start_year": 2025,
+        "cpi_inflatable": false,
+        "cpi_inflated": false,
+        "col_var": "",
+        "col_label": "",
+        "value": [
+            0.0
+        ],
+        "boolean_value": false,
+        "integer_value": false,
+        "range": {
+            "min": 0,
+            "max": 1
+        },
+        "out_of_range_minmsg": "",
+        "out_of_range_maxmsg": "",
+        "out_of_range_action": "stop"
+    },
+    "_tax_rental_income_marginal_rate": {
+        "long_name": "Switch to tax Rental Income at Marginal Rates",
+        "description": "Switch to tax Rental Income at Marginal Rates, =0 if flat Rate, =1 if marginal rate",
+        "itr_ref": "Income Tax Act",
+        "notes": "",
+        "row_var": "AYEAR",
+        "row_label": [
+            "2025"
+        ],
+        "start_year": 2025,
+        "cpi_inflatable": false,
+        "cpi_inflated": false,
+        "col_var": "",
+        "col_label": "",
+        "value": [
+            0.0
+        ],
+        "boolean_value": false,
+        "integer_value": false,
+        "range": {
+            "min": 0,
+            "max": 1
+        },
+        "out_of_range_minmsg": "",
+        "out_of_range_maxmsg": "",
+        "out_of_range_action": "stop"
+    },
+    "_capital_gains_1_tax_rate": {
+        "long_name": "Capital Gains 1 Tax Rate",
+        "description": "Capital Gains 1 Tax Rate",
+        "itr_ref": "Income Tax Act",
+        "notes": "",
+        "row_var": "AYEAR",
+        "row_label": [
+            "2025"
+        ],
+        "start_year": 2025,
+        "cpi_inflatable": false,
+        "cpi_inflated": false,
+        "col_var": "",
+        "col_label": "",
+        "value": [
+            0.15
+        ],
+        "boolean_value": false,
+        "integer_value": false,
+        "range": {
+            "min": 0,
+            "max": 1
+        },
+        "out_of_range_minmsg": "",
+        "out_of_range_maxmsg": "",
+        "out_of_range_action": "stop"
+    },
+    "_capital_gains_1P_tax_rate": {
+        "long_name": "Capital Gains 1 Tax Rate",
+        "description": "Capital Gains 1 Tax Rate",
+        "itr_ref": "Income Tax Act",
+        "notes": "",
+        "row_var": "AYEAR",
+        "row_label": [
+            "2025"
+        ],
+        "start_year": 2025,
+        "cpi_inflatable": false,
+        "cpi_inflated": false,
+        "col_var": "",
+        "col_label": "",
+        "value": [
+            0.15
+        ],
+        "boolean_value": false,
+        "integer_value": false,
+        "range": {
+            "min": 0,
+            "max": 1
+        },
+        "out_of_range_minmsg": "",
+        "out_of_range_maxmsg": "",
+        "out_of_range_action": "stop"
+    },
+    "_capital_gains_2_tax_rate": {
+        "long_name": "Capital Gains 1 Tax Rate",
+        "description": "Capital Gains 1 Tax Rate",
+        "itr_ref": "Income Tax Act",
+        "notes": "",
+        "row_var": "AYEAR",
+        "row_label": [
+            "2025"
+        ],
+        "start_year": 2025,
+        "cpi_inflatable": false,
+        "cpi_inflated": false,
+        "col_var": "",
+        "col_label": "",
+        "value": [
+            0.15
+        ],
+        "boolean_value": false,
+        "integer_value": false,
+        "range": {
+            "min": 0,
+            "max": 1
+        },
+        "out_of_range_minmsg": "",
+        "out_of_range_maxmsg": "",
+        "out_of_range_action": "stop"
+    },
+    "_rental_income_tax_rate": {
+        "long_name": "Rental Income Tax Rate",
+        "description": "Rental Income Tax Rate",
+        "itr_ref": "Income Tax Act",
+        "notes": "",
+        "row_var": "AYEAR",
+        "row_label": [
+            "2025"
+        ],
+        "start_year": 2025,
+        "cpi_inflatable": false,
+        "cpi_inflated": false,
+        "col_var": "",
+        "col_label": "",
+        "value": [
+            0.075
+        ],
+        "boolean_value": false,
+        "integer_value": false,
+        "range": {
+            "min": 0,
+            "max": 1
+        },
+        "out_of_range_minmsg": "",
+        "out_of_range_maxmsg": "",
+        "out_of_range_action": "stop"
+    },
+    "_rental_income_exemption_threshold": {
+        "long_name": "Rental Income Exemption Threshhold",
+        "description": "Rental Income Tax Rate",
+        "itr_ref": "Income Tax Act",
+        "notes": "",
+        "row_var": "AYEAR",
+        "row_label": [
+            "2025"
+        ],
+        "start_year": 2025,
+        "cpi_inflatable": false,
+        "cpi_inflated": false,
+        "col_var": "",
+        "col_label": "",
+        "value": [
+            288000.0
+        ],
+        "boolean_value": false,
+        "integer_value": false,
+        "range": {
+            "min": 0,
+            "max": 9e+99
+        },
+        "out_of_range_minmsg": "",
+        "out_of_range_maxmsg": "",
+        "out_of_range_action": "stop"
+    },
+    "_AHL_deduction_rate": {
+        "long_name": "Rate of Deduction for Affordable Housing Levy",
+        "description": "Rate of Deduction for Affordable Housing Levy",
+        "itr_ref": "Income Tax Act",
+        "notes": "",
+        "row_var": "AYEAR",
+        "row_label": [
+            "2025"
+        ],
+        "start_year": 2025,
+        "cpi_inflatable": false,
+        "cpi_inflated": false,
+        "col_var": "",
+        "col_label": "",
+        "value": [
+            0.015
+        ],
+        "boolean_value": false,
+        "integer_value": false,
+        "range": {
+            "min": 0,
+            "max": 1
+        },
+        "out_of_range_minmsg": "",
+        "out_of_range_maxmsg": "",
+        "out_of_range_action": "stop"
+    },
+    "_SHIF_deduction_rate": {
+        "long_name": "Rate of Deduction for Social Health Insurance Fund",
+        "description": "Rate of Deduction for Social Health Insurance Fund",
+        "itr_ref": "Income Tax Act",
+        "notes": "",
+        "row_var": "AYEAR",
+        "row_label": [
+            "2025"
+        ],
+        "start_year": 2025,
+        "cpi_inflatable": false,
+        "cpi_inflated": false,
+        "col_var": "",
+        "col_label": "",
+        "value": [
+            0.0275
+        ],
+        "boolean_value": false,
+        "integer_value": false,
+        "range": {
+            "min": 0,
+            "max": 1
+        },
+        "out_of_range_minmsg": "",
+        "out_of_range_maxmsg": "",
+        "out_of_range_action": "stop"
+    },
+    "_PRMF_deduction_threshold": {
+        "long_name": "Ceiling for PRMF Deduction",
+        "description": "Ceiling for PRMF Deduction",
+        "itr_ref": "Income Tax Act",
+        "notes": "",
+        "row_var": "AYEAR",
+        "row_label": [
+            "2025"
+        ],
+        "start_year": 2025,
+        "cpi_inflatable": false,
+        "cpi_inflated": false,
+        "col_var": "",
+        "col_label": "",
+        "value": [
+            180000.0
+        ],
+        "boolean_value": false,
+        "integer_value": false,
+        "range": {
+            "min": 0,
+            "max": 9e+99
         },
         "out_of_range_minmsg": "",
         "out_of_range_maxmsg": "",
@@ -407,13 +704,13 @@
     "_mortgage_deduction_threshold": {
         "long_name": "Ceiling for Insurance Relief",
         "description": "PIT Rate for Consumption of Other_Consumption",
-        "itr_ref": "PIT Act",
+        "itr_ref": "Income Tax Act",
         "notes": "",
         "row_var": "AYEAR",
         "row_label": [
-            "2023"
+            "2025"
         ],
-        "start_year": 2023,
+        "start_year": 2025,
         "cpi_inflatable": false,
         "cpi_inflated": false,
         "col_var": "",
@@ -434,13 +731,13 @@
     "_pension_deduction_threshold": {
         "long_name": "Ceiling for Insurance Relief",
         "description": "PIT Rate for Consumption of Other_Consumption",
-        "itr_ref": "PIT Act",
+        "itr_ref": "Income Tax Act",
         "notes": "",
         "row_var": "AYEAR",
         "row_label": [
-            "2023"
+            "2025"
         ],
-        "start_year": 2023,
+        "start_year": 2025,
         "cpi_inflatable": false,
         "cpi_inflated": false,
         "col_var": "",
@@ -458,43 +755,16 @@
         "out_of_range_maxmsg": "",
         "out_of_range_action": "stop"
     },
-    "_AHL_deduction_rate": {
-        "long_name": "Affordable Housing Levy Deduction Rate",
-        "description": "",
-        "itr_ref": "PIT Act",
-        "notes": "",
-        "row_var": "AYEAR",
-        "row_label": [
-            "2023"
-        ],
-        "start_year": 2023,
-        "cpi_inflatable": false,
-        "cpi_inflated": false,
-        "col_var": "",
-        "col_label": "",
-        "value": [
-            0.015
-        ],
-        "boolean_value": false,
-        "integer_value": false,
-        "range": {
-            "min": 0,
-            "max": 1.0
-        },
-        "out_of_range_minmsg": "",
-        "out_of_range_maxmsg": "",
-        "out_of_range_action": "stop"
-    },
     "_personal_relief": {
         "long_name": "Personal Relief",
         "description": "PIT Rate for Consumption of Restaurants_Hotels",
-        "itr_ref": "PIT Act",
+        "itr_ref": "Income Tax Act",
         "notes": "",
         "row_var": "AYEAR",
         "row_label": [
-            "2023"
+            "2025"
         ],
-        "start_year": 2023,
+        "start_year": 2025,
         "cpi_inflatable": false,
         "cpi_inflated": false,
         "col_var": "",
@@ -515,13 +785,13 @@
     "_insurance_relief_threshold": {
         "long_name": "Ceiling for Insurance Relief",
         "description": "PIT Rate for Consumption of Other_Consumption",
-        "itr_ref": "PIT Act",
+        "itr_ref": "Income Tax Act",
         "notes": "",
         "row_var": "AYEAR",
         "row_label": [
-            "2023"
+            "2025"
         ],
-        "start_year": 2023,
+        "start_year": 2025,
         "cpi_inflatable": false,
         "cpi_inflated": false,
         "col_var": "",
@@ -542,13 +812,13 @@
     "_disability_exemption_threshold": {
         "long_name": "Final Tax on Interest",
         "description": "PIT Rate for Consumption of Other_Consumption",
-        "itr_ref": "PIT Act",
+        "itr_ref": "Income Tax Act",
         "notes": "",
         "row_var": "AYEAR",
         "row_label": [
-            "2023"
+            "2025"
         ],
-        "start_year": 2023,
+        "start_year": 2025,
         "cpi_inflatable": false,
         "cpi_inflated": false,
         "col_var": "",
@@ -569,13 +839,13 @@
     "_rate1_curr_law": {
         "long_name": "Marginal PIT Rate1",
         "description": "PIT Rate for Consumption of Food",
-        "itr_ref": "PIT Act",
+        "itr_ref": "Income Tax Act",
         "notes": "",
         "row_var": "AYEAR",
         "row_label": [
-            "2023"
+            "2025"
         ],
-        "start_year": 2023,
+        "start_year": 2025,
         "cpi_inflatable": false,
         "cpi_inflated": false,
         "col_var": "",
@@ -587,7 +857,7 @@
         "integer_value": false,
         "range": {
             "min": 0,
-            "max": 1.0
+            "max": 1
         },
         "out_of_range_minmsg": "",
         "out_of_range_maxmsg": "",
@@ -596,13 +866,13 @@
     "_rate2_curr_law": {
         "long_name": "Marginal PIT Rate2",
         "description": "PIT Rate for Consumption of Alcohol_Tobacco",
-        "itr_ref": "PIT Act",
+        "itr_ref": "Income Tax Act",
         "notes": "",
         "row_var": "AYEAR",
         "row_label": [
-            "2023"
+            "2025"
         ],
-        "start_year": 2023,
+        "start_year": 2025,
         "cpi_inflatable": false,
         "cpi_inflated": false,
         "col_var": "",
@@ -614,7 +884,7 @@
         "integer_value": false,
         "range": {
             "min": 0,
-            "max": 1.0
+            "max": 1
         },
         "out_of_range_minmsg": "",
         "out_of_range_maxmsg": "",
@@ -623,13 +893,13 @@
     "_rate3_curr_law": {
         "long_name": "Marginal PIT Rate3",
         "description": "PIT Rate for Consumption of Clothing_Footwear",
-        "itr_ref": "PIT Act",
+        "itr_ref": "Income Tax Act",
         "notes": "",
         "row_var": "AYEAR",
         "row_label": [
-            "2023"
+            "2025"
         ],
-        "start_year": 2023,
+        "start_year": 2025,
         "cpi_inflatable": false,
         "cpi_inflated": false,
         "col_var": "",
@@ -641,7 +911,7 @@
         "integer_value": false,
         "range": {
             "min": 0,
-            "max": 1.0
+            "max": 1
         },
         "out_of_range_minmsg": "",
         "out_of_range_maxmsg": "",
@@ -650,13 +920,13 @@
     "_rate4_curr_law": {
         "long_name": "Marginal PIT Rate4",
         "description": "PIT Rate for Consumption of Housing",
-        "itr_ref": "PIT Act",
+        "itr_ref": "Income Tax Act",
         "notes": "",
         "row_var": "AYEAR",
         "row_label": [
-            "2023"
+            "2025"
         ],
-        "start_year": 2023,
+        "start_year": 2025,
         "cpi_inflatable": false,
         "cpi_inflated": false,
         "col_var": "",
@@ -668,7 +938,7 @@
         "integer_value": false,
         "range": {
             "min": 0,
-            "max": 1.0
+            "max": 1
         },
         "out_of_range_minmsg": "",
         "out_of_range_maxmsg": "",
@@ -677,13 +947,13 @@
     "_rate5_curr_law": {
         "long_name": "Marginal PIT Rate5",
         "description": "PIT Rate for Consumption of Household_Goods_Services",
-        "itr_ref": "PIT Act",
+        "itr_ref": "Income Tax Act",
         "notes": "",
         "row_var": "AYEAR",
         "row_label": [
-            "2023"
+            "2025"
         ],
-        "start_year": 2023,
+        "start_year": 2025,
         "cpi_inflatable": false,
         "cpi_inflated": false,
         "col_var": "",
@@ -695,22 +965,22 @@
         "integer_value": false,
         "range": {
             "min": 0,
-            "max": 1.0
+            "max": 1
         },
         "out_of_range_minmsg": "",
         "out_of_range_maxmsg": "",
         "out_of_range_action": "stop"
     },
     "_rate6_curr_law": {
-        "long_name": "Marginal PIT Rate5",
+        "long_name": "Marginal PIT Rate6",
         "description": "PIT Rate for Consumption of Household_Goods_Services",
-        "itr_ref": "PIT Act",
+        "itr_ref": "Income Tax Act",
         "notes": "",
         "row_var": "AYEAR",
         "row_label": [
-            "2023"
+            "2025"
         ],
-        "start_year": 2023,
+        "start_year": 2025,
         "cpi_inflatable": false,
         "cpi_inflated": false,
         "col_var": "",
@@ -722,22 +992,22 @@
         "integer_value": false,
         "range": {
             "min": 0,
-            "max": 1.0
+            "max": 1
         },
         "out_of_range_minmsg": "",
         "out_of_range_maxmsg": "",
         "out_of_range_action": "stop"
-    },    
+    },
     "_rate7_curr_law": {
-        "long_name": "Marginal PIT Rate5",
+        "long_name": "Marginal PIT Rate7",
         "description": "PIT Rate for Consumption of Household_Goods_Services",
-        "itr_ref": "PIT Act",
+        "itr_ref": "Income Tax Act",
         "notes": "",
         "row_var": "AYEAR",
         "row_label": [
-            "2023"
+            "2025"
         ],
-        "start_year": 2023,
+        "start_year": 2025,
         "cpi_inflatable": false,
         "cpi_inflated": false,
         "col_var": "",
@@ -749,22 +1019,22 @@
         "integer_value": false,
         "range": {
             "min": 0,
-            "max": 1.0
+            "max": 1
         },
         "out_of_range_minmsg": "",
         "out_of_range_maxmsg": "",
         "out_of_range_action": "stop"
-    },    
+    },
     "_tbrk1_curr_law": {
         "long_name": "PIT Threshold1",
         "description": "PIT Rate for Consumption of Health",
-        "itr_ref": "PIT Act",
+        "itr_ref": "Income Tax Act",
         "notes": "",
         "row_var": "AYEAR",
         "row_label": [
-            "2023"
+            "2025"
         ],
-        "start_year": 2023,
+        "start_year": 2025,
         "cpi_inflatable": false,
         "cpi_inflated": false,
         "col_var": "",
@@ -776,7 +1046,7 @@
         "integer_value": false,
         "range": {
             "min": 0,
-            "max": "_tbrk2_curr_law"
+            "max": "_tbrk2"
         },
         "out_of_range_minmsg": "",
         "out_of_range_maxmsg": "",
@@ -785,13 +1055,13 @@
     "_tbrk2_curr_law": {
         "long_name": "PIT Threshold2",
         "description": "PIT Rate for Consumption of Transport",
-        "itr_ref": "PIT Act",
+        "itr_ref": "Income Tax Act",
         "notes": "",
         "row_var": "AYEAR",
         "row_label": [
-            "2023"
+            "2025"
         ],
-        "start_year": 2023,
+        "start_year": 2025,
         "cpi_inflatable": false,
         "cpi_inflated": false,
         "col_var": "",
@@ -802,8 +1072,8 @@
         "boolean_value": false,
         "integer_value": false,
         "range": {
-            "min": "_tbrk1_curr_law",
-            "max": "_tbrk3_curr_law"
+            "min": "_tbrk1",
+            "max": "_tbrk3"
         },
         "out_of_range_minmsg": "",
         "out_of_range_maxmsg": "",
@@ -812,13 +1082,13 @@
     "_tbrk3_curr_law": {
         "long_name": "PIT Threshold3",
         "description": "PIT Rate for Consumption of Communication",
-        "itr_ref": "PIT Act",
+        "itr_ref": "Income Tax Act",
         "notes": "",
         "row_var": "AYEAR",
         "row_label": [
-            "2023"
+            "2025"
         ],
-        "start_year": 2023,
+        "start_year": 2025,
         "cpi_inflatable": false,
         "cpi_inflated": false,
         "col_var": "",
@@ -829,8 +1099,8 @@
         "boolean_value": false,
         "integer_value": false,
         "range": {
-            "min": "_tbrk2_curr_law",
-            "max": "_tbrk4_curr_law"
+            "min": "_tbrk2",
+            "max": "_tbrk4"
         },
         "out_of_range_minmsg": "",
         "out_of_range_maxmsg": "",
@@ -839,13 +1109,13 @@
     "_tbrk4_curr_law": {
         "long_name": "PIT Threshold4",
         "description": "PIT Rate for Consumption of Recreation_Culture",
-        "itr_ref": "PIT Act",
+        "itr_ref": "Income Tax Act",
         "notes": "",
         "row_var": "AYEAR",
         "row_label": [
-            "2023"
+            "2025"
         ],
-        "start_year": 2023,
+        "start_year": 2025,
         "cpi_inflatable": false,
         "cpi_inflated": false,
         "col_var": "",
@@ -856,8 +1126,8 @@
         "boolean_value": false,
         "integer_value": false,
         "range": {
-            "min": "_tbrk3_curr_law",
-            "max": "_tbrk5_curr_law"
+            "min": "_tbrk3",
+            "max": "_tbrk5"
         },
         "out_of_range_minmsg": "",
         "out_of_range_maxmsg": "",
@@ -866,67 +1136,13 @@
     "_tbrk5_curr_law": {
         "long_name": "PIT Threshold5",
         "description": "PIT Rate for Consumption of Education",
-        "itr_ref": "PIT Act",
+        "itr_ref": "Income Tax Act",
         "notes": "",
         "row_var": "AYEAR",
         "row_label": [
-            "2023"
+            "2025"
         ],
-        "start_year": 2023,
-        "cpi_inflatable": false,
-        "cpi_inflated": false,
-        "col_var": "",
-        "col_label": "",
-        "value": [
-            1e+99
-        ],
-        "boolean_value": false,
-        "integer_value": false,
-        "range": {
-            "min": "_tbrk4_curr_law",
-            "max": "_tbrk6_curr_law"
-        },
-        "out_of_range_minmsg": "",
-        "out_of_range_maxmsg": "",
-        "out_of_range_action": "stop"
-    },
-    "_tbrk6_curr_law": {
-        "long_name": "PIT Threshold5",
-        "description": "PIT Rate for Consumption of Education",
-        "itr_ref": "PIT Act",
-        "notes": "",
-        "row_var": "AYEAR",
-        "row_label": [
-            "2023"
-        ],
-        "start_year": 2023,
-        "cpi_inflatable": false,
-        "cpi_inflated": false,
-        "col_var": "",
-        "col_label": "",
-        "value": [
-            2e+99
-        ],
-        "boolean_value": false,
-        "integer_value": false,
-        "range": {
-            "min": "_tbrk5_curr_law",
-            "max": "_tbrk7_curr_law"
-        },
-        "out_of_range_minmsg": "",
-        "out_of_range_maxmsg": "",
-        "out_of_range_action": "stop"
-    },  
-    "_tbrk7_curr_law": {
-        "long_name": "PIT Threshold5",
-        "description": "PIT Rate for Consumption of Education",
-        "itr_ref": "PIT Act",
-        "notes": "",
-        "row_var": "AYEAR",
-        "row_label": [
-            "2023"
-        ],
-        "start_year": 2023,
+        "start_year": 2025,
         "cpi_inflatable": false,
         "cpi_inflated": false,
         "col_var": "",
@@ -937,13 +1153,67 @@
         "boolean_value": false,
         "integer_value": false,
         "range": {
-            "min": "_tbrk6_curr_law",
+            "min": "_tbrk4",
+            "max": "_tbrk6"
+        },
+        "out_of_range_minmsg": "",
+        "out_of_range_maxmsg": "",
+        "out_of_range_action": "stop"
+    },
+    "_tbrk6_curr_law": {
+        "long_name": "PIT Threshold6",
+        "description": "PIT Rate for Consumption of Education",
+        "itr_ref": "Income Tax Act",
+        "notes": "",
+        "row_var": "AYEAR",
+        "row_label": [
+            "2025"
+        ],
+        "start_year": 2025,
+        "cpi_inflatable": false,
+        "cpi_inflated": false,
+        "col_var": "",
+        "col_label": "",
+        "value": [
+            2.0000000000000002e+99
+        ],
+        "boolean_value": false,
+        "integer_value": false,
+        "range": {
+            "min": "_tbrk5",
+            "max": "_tbrk7"
+        },
+        "out_of_range_minmsg": "",
+        "out_of_range_maxmsg": "",
+        "out_of_range_action": "stop"
+    },
+    "_tbrk7_curr_law": {
+        "long_name": "PIT Threshold7",
+        "description": "PIT Rate for Consumption of Education",
+        "itr_ref": "Income Tax Act",
+        "notes": "",
+        "row_var": "AYEAR",
+        "row_label": [
+            "2025"
+        ],
+        "start_year": 2025,
+        "cpi_inflatable": false,
+        "cpi_inflated": false,
+        "col_var": "",
+        "col_label": "",
+        "value": [
+            9e+99
+        ],
+        "boolean_value": false,
+        "integer_value": false,
+        "range": {
+            "min": "_tbrk6",
             "max": 9e+99
         },
         "out_of_range_minmsg": "",
         "out_of_range_maxmsg": "",
         "out_of_range_action": "stop"
-    },      
+    },
     "_elasticity_pit_taxable_income_threshold": {
         "long_name": "Elasticity of Taxable Income Threshholds",
         "description": "Elasticity of Taxable Income Threshholds",
@@ -951,9 +1221,9 @@
         "notes": "",
         "row_var": "AYEAR",
         "row_label": [
-            "2023"
+            "2025"
         ],
-        "start_year": 2023,
+        "start_year": 2025,
         "cpi_inflatable": false,
         "cpi_inflated": false,
         "col_var": "bracket",
@@ -986,9 +1256,9 @@
         "notes": "",
         "row_var": "AYEAR",
         "row_label": [
-            "2023"
+            "2025"
         ],
-        "start_year": 2023,
+        "start_year": 2025,
         "cpi_inflatable": false,
         "cpi_inflated": false,
         "col_var": "bracket",
@@ -999,16 +1269,16 @@
         ],
         "value": [
             [
-                0.0,
-                0.0,
-                0.0
+                0.2,
+                0.2,
+                0.2
             ]
         ],
         "boolean_value": false,
         "integer_value": false,
         "range": {
             "min": -100,
-            "max": 100.0
+            "max": 100
         },
         "out_of_range_minmsg": "",
         "out_of_range_maxmsg": "",
@@ -1021,9 +1291,9 @@
         "notes": "",
         "row_var": "AYEAR",
         "row_label": [
-            "2023"
+            "2025"
         ],
-        "start_year": 2023,
+        "start_year": 2025,
         "cpi_inflatable": false,
         "cpi_inflated": false,
         "col_var": "bracket",
@@ -1056,9 +1326,9 @@
         "notes": "",
         "row_var": "AYEAR",
         "row_label": [
-            "2023"
+            "2025"
         ],
-        "start_year": 2023,
+        "start_year": 2025,
         "cpi_inflatable": false,
         "cpi_inflated": false,
         "col_var": "bracket",
@@ -1069,16 +1339,16 @@
         ],
         "value": [
             [
-                0.0,
-                0.0,
-                0.0
+                0.2,
+                0.2,
+                0.2
             ]
         ],
         "boolean_value": false,
         "integer_value": false,
         "range": {
             "min": -100,
-            "max": 100.0
+            "max": 100
         },
         "out_of_range_minmsg": "",
         "out_of_range_maxmsg": "",

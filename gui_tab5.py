@@ -76,6 +76,11 @@ def display_distribution(self, widget, tax_type, block_1_title_pos_x):
             self.button_generate_distribution.place(relx = self.block_distribution_pos_x[tax_type],
                                                     rely = self.block_1_entry_1_y+6*self.entry_entry_gap_y, anchor = "w")       
             self.button_generate_distribution.config(command=lambda: self.clicked_generate_distribution('dist_by_income'))
+
+            self.button_generate_distribution = ttk.Button(self.TAB5, text = "Generate Total Tax Contribution and Taxpayers by Taxable Income Brackets", style='my.TButton')
+            self.button_generate_distribution.place(relx = self.block_distribution_pos_x[tax_type],
+                                                    rely = self.block_1_entry_1_y+8*self.entry_entry_gap_y, anchor = "w")       
+            self.button_generate_distribution.config(command=lambda: self.clicked_generate_distribution('dist_by_taxable_income'))
             
         else:
             self.vars[tax_type+'_display_revenue_table'] = 1

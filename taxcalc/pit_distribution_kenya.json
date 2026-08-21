@@ -2,16 +2,19 @@
   "DIST_VARIABLES": [
     "weight",
     "total_income",
+    "net_taxable_income",
     "pitax"
   ],
   "DIST_TABLE_COLUMNS": [
     "weight",
     "total_income",
+    "net_taxable_income",
     "pitax"
   ],
   "DIST_TABLE_LABELS": [
     "Returns",
     "Total Income",
+    "Net Taxable Income",
     "PITax"
   ],
   "DECILE_ROW_NAMES": [
@@ -46,6 +49,15 @@
     ">10m",
     "ALL"
   ],
+  "TAXABLE_INCOME_ROW_NAMES": [
+    "<0",
+    "0-288k",
+    "288k-388k",
+    "388k-6m",
+    "6m-9.6m",
+    ">9.6m",
+    "ALL"
+  ],
   "STANDARD_INCOME_BINS": [
     -9e+99,
     -1e-09,
@@ -60,5 +72,15 @@
     10000000.0,
     9e+99
   ],
-  "income_measure": "total_income"
+  "TAXABLE_INCOME_BINS": [
+    -9e+99,
+    -1e-09,
+    288000.0,
+    388000.0,
+    6000000.0,
+    9600000.0,
+    9e+99
+  ],  
+  "income_measure": "total_income",
+  "taxable_income_measure": "net_taxable_income"
 }

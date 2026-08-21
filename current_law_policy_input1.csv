@@ -1,0 +1,50 @@
+﻿field_name,long_name,description,itr_ref,notes,row_var,row_label,start_year,cpi_inflatable,cpi_inflated,col_var,col_label,boolean_value,integer_value,value,range,min,max,out_of_range_minmsg,out_of_range_maxmsg,out_of_range_action
+rate1,Marginal PIT Rate1,PIT Rate for Consumption of Food,Income Tax Act,,AYEAR,2025,2025,FALSE,FALSE,,,FALSE,FALSE,0.1,,0,1,,,stop
+rate2,Marginal PIT Rate2,PIT Rate for Consumption of Alcohol_Tobacco,Income Tax Act,,AYEAR,2025,2025,FALSE,FALSE,,,FALSE,FALSE,0.25,,0,1,,,stop
+rate3,Marginal PIT Rate3,PIT Rate for Consumption of Clothing_Footwear,Income Tax Act,,AYEAR,2025,2025,FALSE,FALSE,,,FALSE,FALSE,0.3,,0,1,,,stop
+rate4,Marginal PIT Rate4,PIT Rate for Consumption of Housing,Income Tax Act,,AYEAR,2025,2025,FALSE,FALSE,,,FALSE,FALSE,0.325,,0,1,,,stop
+rate5,Marginal PIT Rate5,PIT Rate for Consumption of Household_Goods_Services,Income Tax Act,,AYEAR,2025,2025,FALSE,FALSE,,,FALSE,FALSE,0.35,,0,1,,,stop
+rate6,Marginal PIT Rate6,PIT Rate for Consumption of Household_Goods_Services,Income Tax Act,,AYEAR,2025,2025,FALSE,FALSE,,,FALSE,FALSE,0.35,,0,1,,,stop
+rate7,Marginal PIT Rate7,PIT Rate for Consumption of Household_Goods_Services,Income Tax Act,,AYEAR,2025,2025,FALSE,FALSE,,,FALSE,FALSE,0.35,,0,1,,,stop
+tbrk1,PIT Threshold1,PIT Rate for Consumption of Health,Income Tax Act,,AYEAR,2025,2025,FALSE,FALSE,,,FALSE,FALSE,288000,,0,_tbrk2,,,stop
+tbrk2,PIT Threshold2,PIT Rate for Consumption of Transport,Income Tax Act,,AYEAR,2025,2025,FALSE,FALSE,,,FALSE,FALSE,388000,,_tbrk1,_tbrk3,,,stop
+tbrk3,PIT Threshold3,PIT Rate for Consumption of Communication,Income Tax Act,,AYEAR,2025,2025,FALSE,FALSE,,,FALSE,FALSE,6000000,,_tbrk2,_tbrk4,,,stop
+tbrk4,PIT Threshold4,PIT Rate for Consumption of Recreation_Culture,Income Tax Act,,AYEAR,2025,2025,FALSE,FALSE,,,FALSE,FALSE,9600000,,_tbrk3,_tbrk5,,,stop
+tbrk5,PIT Threshold5,PIT Rate for Consumption of Education,Income Tax Act,,AYEAR,2025,2025,FALSE,FALSE,,,FALSE,FALSE,1.00E+99,,_tbrk4,_tbrk6,,,stop
+tbrk6,PIT Threshold6,PIT Rate for Consumption of Education,Income Tax Act,,AYEAR,2025,2025,FALSE,FALSE,,,FALSE,FALSE,2.00E+99,,_tbrk5,_tbrk7,,,stop
+tbrk7,PIT Threshold7,PIT Rate for Consumption of Education,Income Tax Act,,AYEAR,2025,2025,FALSE,FALSE,,,FALSE,FALSE,9.00E+99,,_tbrk6,9.00E+99,,,stop
+interest_dividend_WHT_rate,Exemption for Persons with Disabilities,PIT Rate for Consumption of Other_Consumption,Income Tax Act,,AYEAR,2025,2025,FALSE,FALSE,,,FALSE,FALSE,0.15,,0,1,,,stop
+tax_int_div_marginal_rate,Switch to tax Interest_Dividend at Marginal Rates,"Switch to tax Interest_Dividend at Marginal Rates, =0 if flat Rate, =1 if marginal rate",Income Tax Act,,AYEAR,2025,2025,FALSE,FALSE,,,FALSE,FALSE,0,,0,1,,,stop
+tax_cap_gains_marginal_rate,Switch to tax Capital Gains at Marginal Rates,"Switch to tax Capital Gains at Marginal Rates, =0 if flat Rate, =1 if marginal rate",Income Tax Act,,AYEAR,2025,2025,FALSE,FALSE,,,FALSE,FALSE,0,,0,1,,,stop
+tax_rental_income_marginal_rate,Switch to tax Rental Income at Marginal Rates,"Switch to tax Rental Income at Marginal Rates, =0 if flat Rate, =1 if marginal rate",Income Tax Act,,AYEAR,2025,2025,FALSE,FALSE,,,FALSE,FALSE,0,,0,1,,,stop
+capital_gains_1_tax_rate,Capital Gains 1 Tax Rate,Capital Gains 1 Tax Rate,Income Tax Act,,AYEAR,2025,2025,FALSE,FALSE,,,FALSE,FALSE,0.15,,0,1,,,stop
+capital_gains_1P_tax_rate,Capital Gains 1 Tax Rate,Capital Gains 1 Tax Rate,Income Tax Act,,AYEAR,2025,2025,FALSE,FALSE,,,FALSE,FALSE,0.15,,0,1,,,stop
+capital_gains_2_tax_rate,Capital Gains 1 Tax Rate,Capital Gains 1 Tax Rate,Income Tax Act,,AYEAR,2025,2025,FALSE,FALSE,,,FALSE,FALSE,0.15,,0,1,,,stop
+rental_income_tax_rate,Rental Income Tax Rate,Rental Income Tax Rate,Income Tax Act,,AYEAR,2025,2025,FALSE,FALSE,,,FALSE,FALSE,0.075,,0,1,,,stop
+rental_income_exemption_threshold,Rental Income Exemption Threshhold,Rental Income Tax Rate,Income Tax Act,,AYEAR,2025,2025,FALSE,FALSE,,,FALSE,FALSE,288000,,0,9.00E+99,,,stop
+AHL_deduction_rate,Rate of Deduction for Affordable Housing Levy,Rate of Deduction for Affordable Housing Levy,Income Tax Act,,AYEAR,2025,2025,FALSE,FALSE,,,FALSE,FALSE,0.015,,0,1,,,stop
+SHIF_deduction_rate,Rate of Deduction for Social Health Insurance Fund,Rate of Deduction for Social Health Insurance Fund,Income Tax Act,,AYEAR,2025,2025,FALSE,FALSE,,,FALSE,FALSE,0.0275,,0,1,,,stop
+PRMF_deduction_threshold,Ceiling for PRMF Deduction,Ceiling for PRMF Deduction,Income Tax Act,,AYEAR,2025,2025,FALSE,FALSE,,,FALSE,FALSE,180000,,0,9.00E+99,,,stop
+mortgage_deduction_threshold,Ceiling for Insurance Relief,PIT Rate for Consumption of Other_Consumption,Income Tax Act,,AYEAR,2025,2025,FALSE,FALSE,,,FALSE,FALSE,360000,,0,9.00E+99,,,stop
+pension_deduction_threshold,Ceiling for Insurance Relief,PIT Rate for Consumption of Other_Consumption,Income Tax Act,,AYEAR,2025,2025,FALSE,FALSE,,,FALSE,FALSE,240000,,0,9.00E+99,,,stop
+personal_relief,Personal Relief,PIT Rate for Consumption of Restaurants_Hotels,Income Tax Act,,AYEAR,2025,2025,FALSE,FALSE,,,FALSE,FALSE,28800,,0,9.00E+99,,,stop
+insurance_relief_threshold,Ceiling for Insurance Relief,PIT Rate for Consumption of Other_Consumption,Income Tax Act,,AYEAR,2025,2025,FALSE,FALSE,,,FALSE,FALSE,60000,,0,9.00E+99,,,stop
+disability_exemption_threshold,Final Tax on Interest,PIT Rate for Consumption of Other_Consumption,Income Tax Act,,AYEAR,2025,2025,FALSE,FALSE,,,FALSE,FALSE,1800000,,0,9.00E+99,,,stop
+rate1_curr_law,Marginal PIT Rate1,PIT Rate for Consumption of Food,Income Tax Act,,AYEAR,2025,2025,FALSE,FALSE,,,FALSE,FALSE,0.1,,0,1,,,stop
+rate2_curr_law,Marginal PIT Rate2,PIT Rate for Consumption of Alcohol_Tobacco,Income Tax Act,,AYEAR,2025,2025,FALSE,FALSE,,,FALSE,FALSE,0.25,,0,1,,,stop
+rate3_curr_law,Marginal PIT Rate3,PIT Rate for Consumption of Clothing_Footwear,Income Tax Act,,AYEAR,2025,2025,FALSE,FALSE,,,FALSE,FALSE,0.3,,0,1,,,stop
+rate4_curr_law,Marginal PIT Rate4,PIT Rate for Consumption of Housing,Income Tax Act,,AYEAR,2025,2025,FALSE,FALSE,,,FALSE,FALSE,0.325,,0,1,,,stop
+rate5_curr_law,Marginal PIT Rate5,PIT Rate for Consumption of Household_Goods_Services,Income Tax Act,,AYEAR,2025,2025,FALSE,FALSE,,,FALSE,FALSE,0.35,,0,1,,,stop
+rate6_curr_law,Marginal PIT Rate6,PIT Rate for Consumption of Household_Goods_Services,Income Tax Act,,AYEAR,2025,2025,FALSE,FALSE,,,FALSE,FALSE,0.35,,0,1,,,stop
+rate7_curr_law,Marginal PIT Rate7,PIT Rate for Consumption of Household_Goods_Services,Income Tax Act,,AYEAR,2025,2025,FALSE,FALSE,,,FALSE,FALSE,0.35,,0,1,,,stop
+tbrk1_curr_law,PIT Threshold1,PIT Rate for Consumption of Health,Income Tax Act,,AYEAR,2025,2025,FALSE,FALSE,,,FALSE,FALSE,288000,,0,_tbrk2,,,stop
+tbrk2_curr_law,PIT Threshold2,PIT Rate for Consumption of Transport,Income Tax Act,,AYEAR,2025,2025,FALSE,FALSE,,,FALSE,FALSE,388000,,_tbrk1,_tbrk3,,,stop
+tbrk3_curr_law,PIT Threshold3,PIT Rate for Consumption of Communication,Income Tax Act,,AYEAR,2025,2025,FALSE,FALSE,,,FALSE,FALSE,6000000,,_tbrk2,_tbrk4,,,stop
+tbrk4_curr_law,PIT Threshold4,PIT Rate for Consumption of Recreation_Culture,Income Tax Act,,AYEAR,2025,2025,FALSE,FALSE,,,FALSE,FALSE,9600000,,_tbrk3,_tbrk5,,,stop
+tbrk5_curr_law,PIT Threshold5,PIT Rate for Consumption of Education,Income Tax Act,,AYEAR,2025,2025,FALSE,FALSE,,,FALSE,FALSE,9.00E+99,,_tbrk4,_tbrk6,,,stop
+tbrk6_curr_law,PIT Threshold6,PIT Rate for Consumption of Education,Income Tax Act,,AYEAR,2025,2025,FALSE,FALSE,,,FALSE,FALSE,2.00E+99,,_tbrk5,_tbrk7,,,stop
+tbrk7_curr_law,PIT Threshold7,PIT Rate for Consumption of Education,Income Tax Act,,AYEAR,2025,2025,FALSE,FALSE,,,FALSE,FALSE,9.00E+99,,_tbrk6,9.00E+99,,,stop
+elasticity_pit_taxable_income_threshold,Elasticity of Taxable Income Threshholds,Elasticity of Taxable Income Threshholds,Research on Elasticity of Income,,AYEAR,2025,2025,FALSE,FALSE,bracket,,FALSE,FALSE,,,0,9.00E+99,,,stop
+elasticity_pit_taxable_income_value,Elasticity of Taxable Income Values,Elasticity of Taxable Income Values,Research on Elasticity of Income,,AYEAR,2025,2025,FALSE,FALSE,bracket,,FALSE,FALSE,,,-100,100,,,stop
+elasticity_pit_capital_income_threshold,Elasticity of Capital Income Threshholds,Elasticity of Capital Income Threshholds,Research on Elasticity of Income,,AYEAR,2025,2025,FALSE,FALSE,bracket,,FALSE,FALSE,,,0,9.00E+99,,,stop
+elasticity_pit_capital_income_value,Elasticity of Capital Income Values,Elasticity of Capital Income Values,Research on Elasticity of Income,,AYEAR,2025,2025,FALSE,FALSE,bracket,,FALSE,FALSE,,,-100,100,,,stop

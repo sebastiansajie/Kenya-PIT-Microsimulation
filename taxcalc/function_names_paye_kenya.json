@@ -1,0 +1,22 @@
+{
+    "0": "cal_capital_income",
+    "1": "cal_total_income",
+    "2": "cal_emp_income",
+    "3": "cal_mortgage_deduction",
+    "4": "cal_pension_deduction",
+    "5": "cal_AHL_deduction",
+    "6": "cal_SHIF_deduction",
+    "7": "cal_PRMF_deduction",
+    "8": "cal_total_deductions",
+    "9": "cal_disability_exemption",
+    "10": "cal_net_taxable_income",
+    "11": "cal_cgt",
+    "12": "cal_rental_tax",
+    "13": "cal_WHT_interest_dividend",
+    "14": "cal_pit_c",
+    "15": "cal_ti_behavior",
+    "16": "cal_pit_w",
+    "17": "cal_reliefs",
+    "18": "cal_pit",
+    "19": "cal_total_pit"
+}
