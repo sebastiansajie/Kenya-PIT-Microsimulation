@@ -5,7 +5,7 @@
             "type": "int",
             "desc": "Unique positive numeric identifier for filing unit",
             "form": {
-                "2023": "Tax Return Data"
+                "2025": "Tax Return Data"
             },
             "cross_year": "No",
             "attribute": "No"
@@ -15,7 +15,7 @@
             "type": "int",
             "desc": "Year",
             "form": {
-                "2023": "Tax Return Data"
+                "2025": "Tax Return Data"
             },
             "cross_year": "No",
             "attribute": "No"
@@ -25,7 +25,7 @@
             "type": "float",
             "desc": "Weight",
             "form": {
-                "2023": "Tax Return Data"
+                "2025": "Tax Return Data"
             },
             "cross_year": "No",
             "attribute": "No"
@@ -35,7 +35,7 @@
             "type": "float",
             "desc": "Employment Income",
             "form": {
-                "2023": "Tax Return Data"
+                "2025": "Tax Return Data"
             },
             "cross_year": "No",
             "attribute": "No"
@@ -45,7 +45,57 @@
             "type": "float",
             "desc": "Other Income",
             "form": {
-                "2023": "Tax Return Data"
+                "2025": "Tax Return Data"
+            },
+            "cross_year": "No",
+            "attribute": "No"
+        },
+        "interest_dividend": {
+            "required": false,
+            "type": "float",
+            "desc": "Interest and Dividend Income subject to Withholding Tax",
+            "form": {
+                "2025": "Withholding Tax Returns"
+            },
+            "cross_year": "No",
+            "attribute": "No"
+        },
+        "capital_gains_1": {
+            "required": false,
+            "type": "float",
+            "desc": "Capital Gains Type 1",
+            "form": {
+                "2025": "Capital Gains Returns"
+            },
+            "cross_year": "No",
+            "attribute": "No"
+        },
+        "capital_gains_2": {
+            "required": false,
+            "type": "float",
+            "desc": "Capital Gains Type 2",
+            "form": {
+                "2025": "Capital Gains Returns"
+            },
+            "cross_year": "No",
+            "attribute": "No"
+        },
+        "capital_gains_1P": {
+            "required": false,
+            "type": "float",
+            "desc": "Capital Gains Type 1P",
+            "form": {
+                "2025": "Capital Gains Returns"
+            },
+            "cross_year": "No",
+            "attribute": "No"
+        },
+        "tot_rent_income": {
+            "required": false,
+            "type": "float",
+            "desc": "Rental Income",
+            "form": {
+                "2025": "Rental Income Returns"
             },
             "cross_year": "No",
             "attribute": "No"
@@ -55,7 +105,7 @@
             "type": "float",
             "desc": "Interest Income",
             "form": {
-                "2023": "Tax Return Data"
+                "2025": "Tax Return Data"
             },
             "cross_year": "No",
             "attribute": "No"
@@ -65,7 +115,7 @@
             "type": "float",
             "desc": "Business Income",
             "form": {
-                "2023": "Tax Return Data"
+                "2025": "Tax Return Data"
             },
             "cross_year": "No",
             "attribute": "No"
@@ -75,7 +125,7 @@
             "type": "int",
             "desc": "Person with Disability",
             "form": {
-                "2023": "Tax Return Data"
+                "2025": "Tax Return Data"
             },
             "cross_year": "No",
             "attribute": "No"
@@ -85,7 +135,7 @@
             "type": "float",
             "desc": "Mortgage Interest",
             "form": {
-                "2023": "Tax Return Data"
+                "2025": "Tax Return Data"
             },
             "cross_year": "No",
             "attribute": "No"
@@ -95,7 +145,7 @@
             "type": "float",
             "desc": "home_own_saving_plan_dep",
             "form": {
-                "2023": "Tax Return Data"
+                "2025": "Tax Return Data"
             },
             "cross_year": "No",
             "attribute": "No"
@@ -105,7 +155,7 @@
             "type": "float",
             "desc": "hosp_tot_deposit_year",
             "form": {
-                "2023": "Tax Return Data"
+                "2025": "Tax Return Data"
             },
             "cross_year": "No",
             "attribute": "No"
@@ -115,7 +165,17 @@
             "type": "float",
             "desc": "Pension Contribution",
             "form": {
-                "2023": "Tax Return Data"
+                "2025": "Tax Return Data"
+            },
+            "cross_year": "No",
+            "attribute": "No"
+        },
+        "prmf_contribution": {
+            "required": false,
+            "type": "float",
+            "desc": "PRMF Contribution",
+            "form": {
+                "2025": "Tax Return Data"
             },
             "cross_year": "No",
             "attribute": "No"
@@ -125,7 +185,7 @@
             "type": "float",
             "desc": "Insurance Relief",
             "form": {
-                "2023": "Tax Return Data"
+                "2025": "Tax Return Data"
             },
             "cross_year": "No",
             "attribute": "No"
@@ -136,126 +196,168 @@
             "type": "float",
             "desc": "Total Income",
             "form": {
-                "2023": "Calculated from Tax Return Data"
+                "2025": "Calculated from Tax Return Data"
             }
         },
         "capital_income": {
             "type": "float",
             "desc": "Capital Income",
             "form": {
-                "2023": "Calculated from Tax Return Data"
+                "2025": "Calculated from Tax Return Data"
             }
         },
         "emp_income_total": {
             "type": "float",
             "desc": "Incomes at Marginal Rates",
             "form": {
-                "2023": "Calculated from Tax Return Data"
+                "2025": "Calculated from Tax Return Data"
             }
         },
         "mortgage_deduction": {
             "type": "float",
             "desc": "Mortgage Deduction",
             "form": {
-                "2023": "Calculated from Tax Return Data"
+                "2025": "Calculated from Tax Return Data"
             }
         },
         "pension_deduction": {
             "type": "float",
             "desc": "Mortgage Deduction",
             "form": {
-                "2023": "Calculated from Tax Return Data"
-            }
-        },
-        "AHL_deduction": {
-            "type": "float",
-            "desc": "Affordable Housing Levy Deduction",
-            "form": {
-                "2025": "Form IT1 - 11.5 - Calculated from Tax Return Data"
+                "2025": "Calculated from Tax Return Data"
             }
         },
         "disability_exemption": {
             "type": "float",
             "desc": "disability_exemption",
             "form": {
-                "2023": "Calculated from Tax Return Data"
+                "2025": "Calculated from Tax Return Data"
+            }
+        },
+        "AHL_deduction": {
+            "type": "float",
+            "desc": "Affordable Housing Levy Deduction",
+            "form": {
+                "2025": "Calculated from Tax Return Data"
+            }
+        },
+        "SHIF_deduction": {
+            "type": "float",
+            "desc": "Social Health Insurance Fund Deduction",
+            "form": {
+                "2025": "Calculated from Tax Return Data"
+            }
+        },
+        "PRMF_deduction": {
+            "type": "float",
+            "desc": "Post Retirement Medical Fund Deduction",
+            "form": {
+                "2025": "Calculated from Tax Return Data"
             }
         },
         "total_deductions": {
             "type": "float",
             "desc": "Total Deduction",
             "form": {
-                "2023": "Calculated from Tax Return Data"
+                "2025": "Calculated from Tax Return Data"
             }
         },
         "net_taxable_income": {
             "type": "float",
             "desc": "Net Taxable Income",
             "form": {
-                "2023": "Calculated from Tax Return Data"
+                "2025": "Calculated from Tax Return Data"
+            }
+        },
+        "capital_gains_tax": {
+            "type": "float",
+            "desc": "Capital Gains Tax",
+            "form": {
+                "2025": "Calculated from Tax Return Data"
+            }
+        },
+        "rental_income_tax": {
+            "type": "float",
+            "desc": "Rental Income Tax",
+            "form": {
+                "2025": "Calculated from Tax Return Data"
+            }
+        },
+        "WHT_interest_dividend": {
+            "type": "float",
+            "desc": "Witholding Tax on interest and dividend",
+            "form": {
+                "2025": "Calculated from Tax Return Data"
             }
         },
         "income_wage_behavior": {
             "type": "float",
             "desc": "Incomes after adjusting for behavior",
             "form": {
-                "2023": "Calculated from Tax Return Data"
+                "2025": "Calculated from Tax Return Data"
             }
         },
         "tax_payable_before_reliefs": {
             "type": "float",
             "desc": "tax_payable_before_reliefs",
             "form": {
-                "2023": "Calculated from Tax Return Data"
+                "2025": "Calculated from Tax Return Data"
             }
         },
         "total_reliefs": {
             "type": "float",
             "desc": "total_reliefs",
             "form": {
-                "2023": "Calculated from Tax Return Data"
+                "2025": "Calculated from Tax Return Data"
             }
         },
         "tax_payable_after_reliefs": {
             "type": "float",
             "desc": "tax_payable_after_reliefs",
             "form": {
-                "2023": "Calculated from Tax Return Data"
+                "2025": "Calculated from Tax Return Data"
             }
         },
         "applicable_elasticity_food": {
             "type": "float",
             "desc": "Applicable elasticity based on Total Consumption_Income levels",
             "form": {
-                "2023": "Calculated from Tax Return Data"
+                "2025": "Calculated from Tax Return Data"
             }
         },
         "applicable_elasticity_non_food": {
             "type": "float",
             "desc": "Applicable elasticity based on Total Consumption_Income levels",
             "form": {
-                "2023": "Calculated from Tax Return Data"
+                "2025": "Calculated from Tax Return Data"
             }
         },
         "pitax_c": {
             "type": "float",
             "desc": "Total PIT",
             "form": {
-                "2023": "Calculated by the Model"
+                "2025": "Calculated by the Model"
             }
         },
         "pitax_w": {
             "type": "float",
             "desc": "Total PIT",
             "form": {
-                "2023": "Calculated by the Model"
+                "2025": "Calculated by the Model"
             }
         },
         "pitax": {
             "type": "float",
             "desc": "Total PIT",
             "form": {
-                "2023": "Calculated by the Model"
+                "2025": "Calculated by the Model"
+            }
+        },       
+        "pitax_total": {
+            "type": "float",
+            "desc": "Total PIT including tax on Capital Income",
+            "form": {
+                "2025": "Calculated by the Model"
             }
         }
     }

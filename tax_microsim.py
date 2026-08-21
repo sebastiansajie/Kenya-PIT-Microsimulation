@@ -57,6 +57,7 @@ class Application(tk.Frame):
     from guifuncs import get_elasticity_dict, update_elasticity
     from gui_tab1 import tab1
     from gui_tab1 import initialize_vars
+    from gui_tab1 import select_tax_type
     from gui_tab1 import display_entry
     from gui_tab1 import grid_placement   
     from gui_tab2 import tab2
@@ -120,6 +121,7 @@ class Application(tk.Frame):
         #initializing json container to hold all selections
         self.vars = {}
         self.tax_list=['pit','cit','vat']
+        self.block_selected_dict_file = {}
         with open('global_vars.json', 'w') as f:
             f.write(json.dumps(self.vars, indent=2))
         
@@ -433,17 +435,28 @@ class Application(tk.Frame):
         if run_type=='dist_by_decile':
             self.vars[self.tax_type+'_display_distribution_table_bydecile'] = 1
             self.vars[self.tax_type+'_display_distribution_table_byincome'] = 0
+            self.vars[self.tax_type+'_display_distribution_table_bytaxable_income'] = 0
             self.vars[self.tax_type+'_display_revenue_table'] = 0
         elif run_type=='dist_by_income':
             self.vars[self.tax_type+'_display_distribution_table_bydecile'] = 0
             self.vars[self.tax_type+'_display_distribution_table_byincome'] = 1
-            self.vars[self.tax_type+'_display_revenue_table'] = 0            
+            self.vars[self.tax_type+'_display_distribution_table_bytaxable_income'] = 0
+            self.vars[self.tax_type+'_display_revenue_table'] = 0   
+        elif run_type=='dist_by_taxable_income':
+            self.vars[self.tax_type+'_display_distribution_table_bydecile'] = 0
+            self.vars[self.tax_type+'_display_distribution_table_byincome'] = 0
+            self.vars[self.tax_type+'_display_distribution_table_bytaxable_income'] = 1            
+            self.vars[self.tax_type+'_display_revenue_table'] = 0              
         elif (run_type=='revenue') or (run_type=='revenue_with_reform_file'):
             self.vars[self.tax_type+'_display_distribution_table_bydecile'] = 0
+            self.vars[self.tax_type+'_display_distribution_table_byincome'] = 0
             self.vars[self.tax_type+'_display_distribution_table'] = 0
+            self.vars[self.tax_type+'_display_distribution_table_bytaxable_income'] = 0
             self.vars[self.tax_type+'_display_revenue_table'] = 1
         else:
             self.vars[self.tax_type+'_display_distribution_table_bydecile'] = 0
+            self.vars[self.tax_type+'_display_distribution_table_byincome'] = 0
+            self.vars[self.tax_type+'_display_distribution_table_bytaxable_income'] = 0
             self.vars[self.tax_type+'_display_distribution_table'] = 0
             self.vars[self.tax_type+'_display_revenue_table'] = 0            
             

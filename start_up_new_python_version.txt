@@ -1,0 +1,15 @@
+conda activate kenya_pit310
+cd C:\Users\kalac\OneDrive\Desktop\PIT_CIT\Kenya-PIT-Microsimulation-main
+python tax_microsim.py
+
+
+******************
+To create the environment for python 3.10
+
+conda create -n kenya_pit310 python=3.10
+
+python -m pip install "setuptools<81"
+python -m pip install pandas
+python -m pip install matplotlib
+python -m pip install toolz
+******************

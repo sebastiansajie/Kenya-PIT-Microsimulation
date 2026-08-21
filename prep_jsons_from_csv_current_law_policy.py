@@ -12,12 +12,42 @@ def checknan(value):
     if (value=="nan"):
         value=""
     return value
+
+def parse_number_or_reference(value):
+    """
+    Convert numbers to int/float and policy-parameter references to
+    underscore-prefixed strings.
+    """
+    if pd.isna(value):
+        return None
+
+    text = str(value).strip()
+
+    if text == "":
+        return None
+
+    # Integer values such as 0 and 1
+    try:
+        if "." not in text and "e" not in text.lower():
+            return int(text)
+    except ValueError:
+        pass
+
+    # Decimal and scientific-notation values
+    try:
+        return float(text)
+    except ValueError:
+        pass
+
+    # Any remaining range value is a policy-parameter reference.
+    return "_" + text.lstrip("_")
     
-df = pd.read_csv("current_law_policy_input.csv")
+df = pd.read_csv("current_law_policy_input1.csv")
 final_json = {}
 cols = list(df.columns)
 for idx, row in df.iterrows():
-    field_name=str(row['field_name'])
+    csv_field_name = str(row["field_name"]).strip()
+    field_name = "_" + csv_field_name.lstrip("_")
     print(field_name)
     item = {}
     item['long_name'] = str(row['long_name'])
@@ -44,10 +74,10 @@ for idx, row in df.iterrows():
         item['value'] = [(row['value'])]
     item['boolean_value'] = row['boolean_value']
     item['integer_value'] = row['integer_value']
-    range_dict = {}
-    range_dict['min'] = row['min']
-    range_dict['max'] = row['max']
-    item['range']=range_dict
+    item["range"] = {
+        "min": parse_number_or_reference(row["min"]),
+        "max": parse_number_or_reference(row["max"])
+    }
     item['out_of_range_minmsg'] = checknan(str(row['out_of_range_minmsg']))
     item['out_of_range_maxmsg'] = checknan(str(row['out_of_range_maxmsg']))
     item['out_of_range_action'] = str(row['out_of_range_action'])

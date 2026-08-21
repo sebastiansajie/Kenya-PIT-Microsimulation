@@ -59,24 +59,64 @@ def tab6(self):
         chart_list = chart_list + [tax_type+'_distribution_table']
     """
     chart_list = global_vars['chart_list']
-    self.chart_selection = tk.StringVar() 
-    self.chart_combo = ttk.Combobox(self.TAB6, textvariable=self.chart_selection, 
-                                    value=chart_list, font=self.text_font)
-    #chart_combo.current(0)
-    self.chart_combo.place(relx = self.combo_1_TAB6_x, 
-                    rely = self.combo_1_TAB6_y, anchor = "w", width=150)
-    
-    f = open('global_vars.json')
-    global_vars = json.load(f)
-    
-    #self.chart_combo.bind("<<ComboboxSelected>>", lambda event: self.get_attribute_selection(event))
-    self.chart_combo.bind("<<ComboboxSelected>>", lambda event: self.display_chart(event, global_vars))
-    # #self.image = ImageTk.PhotoImage(Image.open("world_bank.png"))
-    # self.image = ImageTk.PhotoImage(Image.open("egypt_flag.jpg"))
-    # #image = tk.PhotoImage(file="blank.png")
-    # self.pic = tk.Label(self.TAB2,image=self.image)
-    # self.pic.place(relx = 0.45, rely = 0.2, anchor = "nw")
-    # self.pic.image = self.image                                                
+    self.chart_selection = tk.StringVar()
+
+    self.chart_combo = ttk.Combobox(
+        self.TAB6,
+        textvariable=self.chart_selection,
+        values=chart_list,
+        font=self.text_font,
+        state="readonly"
+    )
+    self.chart_combo.place(
+        relx=self.combo_1_TAB6_x,
+        rely=self.combo_1_TAB6_y,
+        anchor="w",
+        width=150
+    )
+
+    with open('global_vars.json') as f:
+        global_vars = json.load(f)
+
+    start_year = int(global_vars['start_year'])
+    end_year = int(global_vars['end_year'])
+
+    year_label = tk.Label(
+        self.TAB6,
+        text="Select Year: ",
+        font=self.fontStyle
+    )
+    year_label.place(
+        relx=self.combo_1_TAB6_x,
+        rely=self.combo_1_TAB6_y + 0.07,
+        anchor="e"
+    )
+
+    self.chart_year_selection = tk.StringVar(value=str(start_year))
+
+    self.chart_year_combo = ttk.Combobox(
+        self.TAB6,
+        textvariable=self.chart_year_selection,
+        values=[str(year) for year in range(start_year, end_year + 1)],
+        font=self.text_font,
+        state="readonly"
+    )
+    self.chart_year_combo.place(
+        relx=self.combo_1_TAB6_x,
+        rely=self.combo_1_TAB6_y + 0.07,
+        anchor="w",
+        width=150
+    )
+
+    self.chart_combo.bind(
+        "<<ComboboxSelected>>",
+        lambda event: self.display_chart(event, global_vars)
+    )
+
+    self.chart_year_combo.bind(
+        "<<ComboboxSelected>>",
+        lambda event: self.display_chart(event, global_vars)
+    )                                               
 
 def display_chart(self, event, global_vars):    
     def formatter(x, pos):
@@ -101,7 +141,9 @@ def display_chart(self, event, global_vars):
    
     #self.selected_attribute_chart = self.attribute_selection.get()
     selected_chart = self.chart_selection.get()
-    
+
+    if not selected_chart:
+        return
     #print('selected_chart ', selected_chart)
     #tax_type = selected_chart[:3]
     #f = open('global_vars.json')
@@ -117,6 +159,7 @@ def display_chart(self, event, global_vars):
     else:
         tax_type = 'vat'
         tax_collection_var = 'vatax' 
+    chart_year = int(self.chart_year_selection.get())
     start_year= global_vars['start_year']
     data_start_year= global_vars['data_start_year']
     kakwani_list = global_vars['kakwani_list']      
@@ -176,7 +219,14 @@ def display_chart(self, event, global_vars):
         #drop the rows that includes the average and top 1%
         df=df[:-4]
         #ax = df.plot(kind='bar',y=[tax_collection_var+'_'+str(data_start_year), tax_collection_var+'_'+str(start_year), tax_collection_var+'_ref_'+str(start_year)],figsize=(7, 7))
-        ax = df.plot(kind='bar',y=[tax_collection_var+'_'+str(start_year), tax_collection_var+'_ref_'+str(start_year)],figsize=(7, 7))
+        ax = df.plot(
+            kind='bar',
+            y=[
+                tax_collection_var + '_' + str(start_year),
+                tax_collection_var + '_ref_' + str(chart_year)
+            ],
+            figsize=(7, 7)
+        )
         ax.set_xlabel("Assessable Income Deciles")
         ax.yaxis.set_major_formatter(formatter)
         ax.yaxis.set_minor_formatter(NullFormatter())
@@ -196,7 +246,15 @@ def display_chart(self, event, global_vars):
         df.index.names = ['Decile']
         fig, ax = plt.subplots(figsize=(8, 8))              
         #ax=df.plot(kind='bar',y=[tax_collection_var+'_'+str(start_year), tax_collection_var+'_ref_'+str(start_year+1)],figsize=(7, 7))       
-        ax=df.plot(kind='bar',y=[tax_collection_var+'_'+str(start_year), tax_collection_var+'_ref_'+str(start_year)],figsize=(7, 7))       
+        #ax=df.plot(kind='bar',y=[tax_collection_var+'_'+str(start_year), tax_collection_var+'_ref_'+str(start_year)],figsize=(7, 7))       
+        ax = df.plot(
+            kind='bar',
+            y=[
+                tax_collection_var + '_' + str(start_year),
+                tax_collection_var + '_ref_' + str(chart_year)
+            ],
+            figsize=(7, 7)
+        )
         ax.set_xlabel("Assessable Income Deciles")
         ax.yaxis.set_major_formatter(formatter)
         ax.yaxis.set_minor_formatter(NullFormatter())
@@ -215,10 +273,16 @@ def display_chart(self, event, global_vars):
         df = df.set_index('index')
         df.index.names = ['Income Group']
         #df1=df[df.columns[0]][2:][:-1]
-        df1 = df[[tax_collection_var+'_'+str(start_year), tax_collection_var+'_ref_'+str(start_year)]][2:][:-1]
+        #df1 = df[[tax_collection_var+'_'+str(start_year), tax_collection_var+'_ref_'+str(start_year)]][2:][:-1]
+        df1 = df[
+                [   
+                tax_collection_var + '_' + str(start_year),
+                tax_collection_var + '_ref_' + str(chart_year)
+                ]
+        ][2:][:-1].copy()
         #print('df1 is ', df1)
         df1['pct1'] = df1[tax_collection_var+'_'+str(start_year)]/df1[tax_collection_var+'_'+str(start_year)].sum()
-        df1['pct2'] = df1[tax_collection_var+'_ref_'+str(start_year)]/df1[tax_collection_var+'_ref_'+str(start_year)].sum()
+        df1['pct2'] = df1[tax_collection_var+'_ref_'+str(chart_year)]/df1[tax_collection_var+'_ref_'+str(chart_year)].sum()
         #print("df1['pct2'] is", df1['pct2'])
         labels1 = []
         for i in range(len(df1['pct1'])):
@@ -256,7 +320,7 @@ def display_chart(self, event, global_vars):
             t.set_position((x,y))        
         ax2.set_title('Under Reform')
       
-        fig.suptitle('Contribution to Tax Revenue by Income Groups in '+str(start_year))
+        fig.suptitle('Contribution to Tax Revenue by Income Groups in '+str(start_year)+' and '+str(chart_year) )
         pic_filename1 = "tax_contribution.png"
         plt.savefig(pic_filename1)
         plt.close('all')
@@ -265,17 +329,67 @@ def display_chart(self, event, global_vars):
         self.pic.place(relx = image_pos_x, rely = image_pos_y, anchor = "nw")
         self.pic.image = self.image
         
-    elif (selected_chart==tax_type+'_etr'):        
-        df = pd.read_csv(selected_chart+'.csv', index_col=0)
-        #gini_list =  [0.512656785663004, 0.48923307967360324, 0.48409656284722513]
-        #df = pd.read_csv('pit_etr'+'.csv', index_col=0)        
-        df = df[:-1]
-        df['ETR'] = np.where(df['ETR']>1, np.nan, df['ETR'])
-        df['ETR_ref'] = np.where(df['ETR_ref']>1, np.nan, df['ETR_ref'])
-        maxy = max(df['ETR'].max(), df['ETR_ref'].max())         
+    elif selected_chart == tax_type + '_etr':
+    
+        df = pd.read_csv(selected_chart + '.csv', index_col=0)
+        df = df[:-1].copy()
+    
+        baseline_year = int(global_vars['data_start_year'])
+        
+        current_etr_col = f"ETR_{baseline_year}"
+        reform_etr_col = f"ETR_ref_{chart_year}"
+    
+        missing_columns = [
+            column for column in [current_etr_col, reform_etr_col]
+            if column not in df.columns
+        ]
+    
+        if missing_columns:
+            raise KeyError(
+                f"Cannot draw the ETR chart for {chart_year}. "
+                f"Missing columns: {missing_columns}"
+            )
+    
+        # Ensure the CSV columns are numeric
+        df[current_etr_col] = pd.to_numeric(
+            df[current_etr_col],
+            errors='coerce'
+        )
+        df[reform_etr_col] = pd.to_numeric(
+            df[reform_etr_col],
+            errors='coerce'
+        )
+    
+        df[current_etr_col] = np.where(
+            df[current_etr_col] > 1,
+            np.nan,
+            df[current_etr_col]
+        )
+    
+        df[reform_etr_col] = np.where(
+            df[reform_etr_col] > 1,
+            np.nan,
+            df[reform_etr_col]
+        )
+    
+        maxy = max(
+            df[current_etr_col].max(),
+            df[reform_etr_col].max()
+        )
+    
         df = df.reset_index()
-        fig, ax = plt.subplots(figsize=(8, 6))
-        ax=df.plot(kind="line", x='index', y=['ETR', 'ETR_ref'], color=["b", "r"], label=["ETR "+str(start_year), "ETR Under Reform "+str(start_year)]) 
+    
+        ax = df.plot(
+            kind="line",
+            x="index",
+            y=[current_etr_col, reform_etr_col],
+            color=["b", "r"],
+            label=[
+                f"Current Law Benchmark ({baseline_year})",
+                f"Reform ({chart_year})"
+            ],
+            figsize=(8, 6)
+        )
         #col = ['r', 'b', 'y', 'c', 'm', 'k', 'g', 'r', 'b', 'y']
         #ax.set_xlabel('Percentile')
         ax.set_xticks(np.arange(0, 101, 10))
@@ -296,56 +410,216 @@ def display_chart(self, event, global_vars):
         self.pic = tk.Label(self.TAB6,image=self.image)
         self.pic.place(relx = image_pos_x, rely = image_pos_y, anchor = "nw")
         self.pic.image = self.image       
-    elif (selected_chart==tax_type+'_lorenz_curve'):        
-        df = pd.read_csv(selected_chart+'.csv', thousands=',', index_col=0)
-        #gini_list =  [0.512656785663004, 0.48923307967360324, 0.48409656284722513]
-        #df = pd.read_csv('pit_etr'+'.csv', index_col=0)        
-        df = df[:-1]
-        income = np.sort(df[income_measure+'_'+str(start_year)].to_numpy())
-        income = np.append([0], income)  # Start at 0
-        cum_income = np.cumsum(income) / np.sum(income)  # Normalize cumulative values
-        cum_pop = np.linspace(0, 1, len(cum_income))  # Population percentage
-        gini_income = calc_gini(income)
-        
-        tax1= df[tax_collection_var+'_'+str(start_year)].to_numpy()                    
-        tax1 = np.append([0], tax1)  # Start at 0
-        cum_tax1 = np.cumsum(tax1) / np.sum(tax1)  # Normalize cumulative values
-        #cum_pop_post = np.linspace(0, 1, len(cum_tax))  # Population percentage
-        gini_tax1 = calc_gini(tax1)
+    elif selected_chart == tax_type + '_lorenz_curve':
 
-        tax2= df[tax_collection_var+'_ref_'+str(start_year)].to_numpy()                           
-        tax2 = np.append([0], tax2)  # Start at 0
-        cum_tax2 = np.cumsum(tax2) / np.sum(tax2)  # Normalize cumulative values
-        gini_tax2 = calc_gini(tax2)
-       
-        plt.figure(figsize=(8, 6))
-        plt.plot(cum_pop, cum_income, label="Lorenz Curve Income")
-        plt.plot(cum_pop, cum_tax1, marker='o', markevery=0.3, label="Concentration Curve under Current Law")
-        plt.plot(cum_pop, cum_tax2, marker='s', markevery=0.2, label="Concentration Curve under Reform")      
-        plt.plot([0, 1], [0, 1], linestyle="--", color="gray")  # Perfect equality line
-        plt.fill_between(cum_pop, cum_tax1, cum_tax2, color="skyblue", alpha=0.5)
-        
-        plt.xlabel("Cumulative Population Share")
-        plt.ylabel("Cumulative Income/Tax Share")
-        plt.xlim(0, 1.0)
-        plt.ylim(0, 1.0)
-        # Add annotation
-        plt.annotate(f"Kakwani Index Current Tax:  {gini_tax1-gini_income:.2f}", 
-                     xy=(0.02, 0.7),
-                     fontsize=10, color='black')
-        plt.annotate(f"Kakwani Index Option 1:  {gini_tax2-gini_income:.2f}", 
-                     xy=(0.02, 0.65),
-                     fontsize=10, color='black')        
-        plt.title("Lorenz Curve for "+str(start_year))
-        plt.legend()
-        plt.grid(False)      
+        df = pd.read_csv(
+            selected_chart + '.csv',
+            thousands=',',
+            index_col=0
+        )
+
+        # Remove final total/summary row
+        df = df.iloc[:-1].copy()
+
+        selected_year = int(chart_year)
+
+        income_col = (
+            f"{income_measure}_ref_{selected_year}"
+        )
+
+        tax_col = (
+            f"{tax_collection_var}_ref_{selected_year}"
+        )
+
+        required_columns = [
+            income_col,
+            tax_col
+        ]
+
+        missing_columns = [
+            column
+            for column in required_columns
+            if column not in df.columns
+        ]
+
+        if missing_columns:
+            raise KeyError(
+                f"Cannot draw the Lorenz curve for "
+                f"{selected_year}. Missing columns: "
+                f"{missing_columns}"
+            )
+
+        # Ensure the values are numeric
+        df[income_col] = pd.to_numeric(
+            df[income_col],
+            errors='coerce'
+        )
+
+        df[tax_col] = pd.to_numeric(
+            df[tax_col],
+            errors='coerce'
+        )
+
+        # Remove rows without valid income or tax values
+        df = df.dropna(
+            subset=[income_col, tax_col]
+        )
+
+        # Order observations by income
+        df = df.sort_values(
+            by=income_col
+        )
+
+        income = df[
+            income_col
+        ].to_numpy(dtype=float)
+
+        tax = df[
+            tax_col
+        ].to_numpy(dtype=float)
+
+        # Start both curves at the origin
+        income = np.append([0], income)
+        tax = np.append([0], tax)
+
+        total_income = income.sum()
+        total_tax = tax.sum()
+
+        if total_income == 0:
+            raise ValueError(
+                f"Total income for {selected_year} is zero."
+            )
+
+        if total_tax == 0:
+            raise ValueError(
+                f"Total tax for {selected_year} is zero."
+            )
+
+        # Cumulative shares
+        cum_income = (
+            np.cumsum(income)
+            / total_income
+        )
+
+        cum_tax = (
+            np.cumsum(tax)
+            / total_tax
+        )
+
+        cum_pop = np.linspace(
+            0,
+            1,
+            len(income)
+        )
+
+        # Gini and concentration indices
+        gini_income = calc_gini(income)
+        concentration_tax = calc_gini(tax)
+
+        kakwani_index = (
+            concentration_tax
+            - gini_income
+        )
+
+        # Draw the chart
+        fig, ax = plt.subplots(
+            figsize=(8, 6)
+        )
+
+        ax.plot(
+            cum_pop,
+            cum_income,
+            color='blue',
+            linewidth=2,
+            label=(
+                f"Income Lorenz Curve, "
+                f"{selected_year}"
+            )
+        )
+
+        ax.plot(
+            cum_pop,
+            cum_tax,
+            color='red',
+            linewidth=2,
+            marker='s',
+            markevery=0.2,
+            label=(
+                f"Tax Concentration Curve, "
+                f"{selected_year}"
+            )
+        )
+
+        # Perfect-equality line
+        ax.plot(
+            [0, 1],
+            [0, 1],
+            linestyle='--',
+            color='gray',
+            label='Perfect Equality'
+        )
+
+        # Shade the area between income and tax curves
+        ax.fill_between(
+            cum_pop,
+            cum_income,
+            cum_tax,
+            color='skyblue',
+            alpha=0.4
+        )
+
+        ax.annotate(
+            f"Kakwani Index: {kakwani_index:.3f}",
+            xy=(0.03, 0.72),
+            fontsize=10,
+            color='black'
+        )
+
+        ax.set_xlabel(
+            "Cumulative Population Share"
+        )
+
+        ax.set_ylabel(
+            "Cumulative Income/Tax Share"
+        )
+
+        ax.set_xlim(0, 1)
+        ax.set_ylim(0, 1)
+
+        ax.set_title(
+            f"Income Lorenz and Tax Concentration Curves, "
+            f"{selected_year}"
+        )
+
+        ax.legend(fontsize='small')
+        ax.grid(False)
+
         pic_filename1 = "lorenz.png"
-        plt.savefig(pic_filename1)
-        plt.close('all')
-        self.image = ImageTk.PhotoImage(Image.open("lorenz.png"))
-        self.pic = tk.Label(self.TAB6,image=self.image)
-        self.pic.place(relx = image_pos_x, rely = image_pos_y, anchor = "nw")
-        self.pic.image = self.image       
+
+        plt.savefig(
+            pic_filename1,
+            dpi=100,
+            bbox_inches='tight'
+        )
+
+        plt.close(fig)
+
+        self.image = ImageTk.PhotoImage(
+            Image.open(pic_filename1)
+        )
+
+        self.pic = tk.Label(
+            self.TAB6,
+            image=self.image
+        )
+
+        self.pic.place(
+            relx=image_pos_x,
+            rely=image_pos_y,
+            anchor="nw"
+        )
+
+        self.pic.image = self.image     
 
 
 def get_attribute_selection(self, event):

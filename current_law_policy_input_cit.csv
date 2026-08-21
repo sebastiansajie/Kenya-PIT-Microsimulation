@@ -1,0 +1,40 @@
+﻿field_name,long_name,description,itr_ref,notes,row_var,row_label,start_year,cpi_inflatable,cpi_inflated,col_var,col_label,boolean_value,integer_value,value,range,min,max,out_of_range_minmsg,out_of_range_maxmsg,out_of_range_action
+_General_Rate,General Rate,General Rate,Income Tax Act,,AYEAR,2024,2024,FALSE,FALSE,,,FALSE,FALSE,0.3,,0,1,,,stop
+_Non-Resident_PE_Rate,Non-Resident PE Rate,Non-Resident PE Rate,Income Tax Act,,AYEAR,2024,2024,FALSE,FALSE,,,FALSE,FALSE,0.3,,0,1,,,stop
+_EPZ_First_10_Years_Preferential_Rate,EPZ First 10 Years Preferential Rate,EPZ First 10 Years Preferential Rate,Income Tax Act,,AYEAR,2024,2024,FALSE,FALSE,,,FALSE,FALSE,0.0,,0,1,,,stop
+_EPZ_Next_10_Years_Preferential_Rate,EPZ Next 10 Years Preferential Rate,EPZ Next 10 Years Preferential Rate,Income Tax Act,,AYEAR,2024,2024,FALSE,FALSE,,,FALSE,FALSE,0.3,,0,1,,,stop
+_SEZ_First_10_Years_Preferential_Rate,SEZ First 10 Years Preferential Rate,SEZ First 10 Years Preferential Rate,Income Tax Act,,AYEAR,2024,2024,FALSE,FALSE,,,FALSE,FALSE,0.1,,0,1,,,stop
+_SEZ_Next_10_Years_Preferential_Rate,SEZ Next 10 Years Preferential Rate,SEZ Next 10 Years Preferential Rate,Income Tax Act,,AYEAR,2024,2024,FALSE,FALSE,,,FALSE,FALSE,0.2,,0,1,,,stop
+_Local_Motor_Assembly_Rate,Local Motor Assembly Rate,Local Motor Assembly Rate,Income Tax Act,,AYEAR,2024,2024,FALSE,FALSE,,,FALSE,FALSE,0.2,,0,1,,,stop
+_Rental_Income_100_Units_rate,Rental Income 100 Units rate,Rental Income 100 Units rate,Income Tax Act,,AYEAR,2024,2024,FALSE,FALSE,,,FALSE,FALSE,0.2,,0,1,,,stop
+_CIT_Rate_(Preferential)_for_plastic_recycling_plants,CIT Rate (Preferential) for plastic recycling plants,CIT Rate (Preferential) for plastic recycling plants,Income Tax Act,,AYEAR,2024,2024,FALSE,FALSE,,,FALSE,FALSE,0.2,,0,1,,,stop
+_Other_Preferential_Tax_Rates,Other Preferential Tax Rates,Other Preferential Tax Rates,Income Tax Act,,AYEAR,2024,2024,FALSE,FALSE,,,FALSE,FALSE,1.0,,0,1,,,stop
+_Gross_income_NR_Transmission_of_messages,Gross income NR Transmission of messages,Gross income NR Transmission of messages,Income Tax Act,,AYEAR,2024,2024,FALSE,FALSE,,,FALSE,FALSE,0.1,,0,1,,,stop
+_Gross_income_NR_Ships,Gross income NR Ships,Gross income NR Ships,Income Tax Act,,AYEAR,2024,2024,FALSE,FALSE,,,FALSE,FALSE,0.0,,0,1,,,stop
+_Lower_CIT_Rate_-_SEZ,Lower CIT Rate - SEZ,Lower CIT Rate - SEZ,Income Tax Act,,AYEAR,2024,2024,FALSE,FALSE,,,FALSE,FALSE,1.0,,0,1,,,stop
+_Exempt_Income,Exempt Income,Exempt Income,Income Tax Act,,AYEAR,2024,2024,FALSE,FALSE,,,FALSE,FALSE,1.0,,0,1,,,stop
+_Disallowed_Deductions__(section_4),Disallowed Deductions  (section 4),Disallowed Deductions  (section 4),Income Tax Act,,AYEAR,2024,2024,FALSE,FALSE,,,FALSE,FALSE,,,0,1,,,stop
+_depreciation_by_asset,depreciation by asset,depreciation by asset,Income Tax Act,,AYEAR,2024,2024,FALSE,FALSE,,,FALSE,FALSE,1.0,,0,1,,,stop
+_Entertainment_expenses,Entertainment expenses,Entertainment expenses,Income Tax Act,,AYEAR,2024,2024,FALSE,FALSE,,,FALSE,FALSE,1.0,,0,1,,,stop
+_Non-Deductibility_of_expenses_related_to_exempt_income,Non-Deductibility of expenses related to exempt income,Non-Deductibility of expenses related to exempt income,Income Tax Act,,AYEAR,2024,2024,FALSE,FALSE,,,FALSE,FALSE,1.0,,0,1,,,stop
+_Loss_on_disposal_of_dep._Assets,Loss on disposal of dep. Assets,Loss on disposal of dep. Assets,Income Tax Act,,AYEAR,2024,2024,FALSE,FALSE,,,FALSE,FALSE,1.0,,0,1,,,stop
+_Max_share_of_disposal_assets,Max share of disposal assets,Max share of disposal assets,Income Tax Act,,AYEAR,2024,2024,FALSE,FALSE,,,FALSE,FALSE,1.0,,0,1,,,stop
+_Balancing_charges,Balancing charges,Balancing charges,Income Tax Act,,AYEAR,2024,2024,FALSE,FALSE,,,FALSE,FALSE,1.0,,0,1,,,stop
+_Disallowed_Donations,Disallowed Donations,Disallowed Donations,Income Tax Act,,AYEAR,2024,2024,FALSE,FALSE,,,FALSE,FALSE,1.0,,0,1,,,stop
+_Provision_for_bad_debts,Provision for bad debts,Provision for bad debts,Income Tax Act,,AYEAR,2024,2024,FALSE,FALSE,,,FALSE,FALSE,1.0,,0,1,,,stop
+_Start-up_Costs,Start-up Costs,Start-up Costs,Income Tax Act,,AYEAR,2024,2024,FALSE,FALSE,,,FALSE,FALSE,1.0,,0,1,,,stop
+_Unrealized_Foreign_Exc._Loss,Unrealized Foreign Exc. Loss,Unrealized Foreign Exc. Loss,Income Tax Act,,AYEAR,2024,2024,FALSE,FALSE,,,FALSE,FALSE,1.0,,0,1,,,stop
+_Operating_expenses,Operating expenses,Operating expenses,Income Tax Act,,AYEAR,2024,2024,FALSE,FALSE,,,FALSE,FALSE,1.0,,0,1,,,stop
+_Admin_Exoenses,Admin Exoenses,Admin Exoenses,Income Tax Act,,AYEAR,2024,2024,FALSE,FALSE,,,FALSE,FALSE,1.0,,0,1,,,stop
+_Financial_Expenses,Financial Expenses,Financial Expenses,Income Tax Act,,AYEAR,2024,2024,FALSE,FALSE,,,FALSE,FALSE,1.0,,0,1,,,stop
+_Other_disallowed_Expenses,Other_disallowed Expenses,Other_disallowed Expenses,Income Tax Act,,AYEAR,2024,2024,FALSE,FALSE,,,FALSE,FALSE,1.0,,0,1,,,stop
+_Allowable_Deductions_(section_5),Allowable Deductions (section 5),Allowable Deductions (section 5),Income Tax Act,,AYEAR,2024,2024,FALSE,FALSE,,,FALSE,FALSE,,,0,1,,,stop
+_Profit_on_disposal_of_assets,Profit on disposal of assets,Profit on disposal of assets,Income Tax Act,,AYEAR,2024,2024,FALSE,FALSE,,,FALSE,FALSE,1.0,,0,1,,,stop
+_Capital_allowance,Capital allowance,Capital allowance,Income Tax Act,,AYEAR,2024,2024,FALSE,FALSE,,,FALSE,FALSE,1.0,,0,1,,,stop
+_Scientific_research_expenditures,Scientific research expenditures,Scientific research expenditures,Income Tax Act,,AYEAR,2024,2024,FALSE,FALSE,,,FALSE,FALSE,1.0,,0,1,,,stop
+_Unrealized_Foreign_Exc._Gains,Unrealized Foreign Exc. Gains,Unrealized Foreign Exc. Gains,Income Tax Act,,AYEAR,2024,2024,FALSE,FALSE,,,FALSE,FALSE,1.0,,0,1,,,stop
+_Other_Allowable_Deductions,Other Allowable Deductions,Other Allowable Deductions,Income Tax Act,,AYEAR,2024,2024,FALSE,FALSE,,,FALSE,FALSE,1.0,,0,1,,,stop
+_Loss_brought_forward,Loss brought forward,Loss brought forward,Income Tax Act,,AYEAR,2024,2024,FALSE,FALSE,,,FALSE,FALSE,1.0,,0,1,,,stop
+_Thin_Capitalization_(gross_interest_paid_to_related_persons_and_third_parties_in_excess_of_30%_of_EBITDA),Thin Capitalization (gross interest paid to related persons and third parties in excess of 30% of EBITDA),Thin Capitalization (gross interest paid to related persons and third parties in excess of 30% of EBITDA),Income Tax Act,,AYEAR,2024,2024,FALSE,FALSE,,,FALSE,FALSE,0.3,,0,1,,,stop
+_Investment_deductions_,Investment deductions ,Investment deductions ,Income Tax Act,,AYEAR,2024,2024,FALSE,FALSE,,,FALSE,FALSE,1.0,,0,1,,,stop
+_Investment_deductions_outside_Nairobi_City_County_and_Mombasa_County,Investment deductions outside Nairobi City County and Mombasa County,Investment deductions outside Nairobi City County and Mombasa County,Income Tax Act,,AYEAR,2024,2024,FALSE,FALSE,,,FALSE,FALSE,1.0,,0,1,,,stop

@@ -287,7 +287,8 @@ def create_distribution_table(vdf, groupby, distribution_vardict, income_measure
     assert isinstance(vdf, pd.DataFrame)
     assert (groupby == 'weighted_deciles' or
             groupby == 'weighted_percentiles' or
-            groupby == 'standard_income_bins')
+            groupby == 'standard_income_bins' or
+            groupby == "taxable_income_bins")
     #assert (income_measure == 'GTI' or
     #        income_measure == 'GTI_baseline')
     assert income_measure in vdf
@@ -304,8 +305,16 @@ def create_distribution_table(vdf, groupby, distribution_vardict, income_measure
     elif groupby == 'standard_income_bins':
         pdf = add_income_table_row_variable(vdf, income_measure,
                                             distribution_vardict['STANDARD_INCOME_BINS'])
+    elif groupby == "taxable_income_bins":
+        taxable_income_measure = distribution_vardict[
+                                "taxable_income_measure"]
+        pdf = add_income_table_row_variable(
+            vdf,
+            taxable_income_measure,
+            distribution_vardict["TAXABLE_INCOME_BINS"])
+    
     # construct grouped DataFrame
-    pdf.to_csv("decile_data.csv")
+    #pdf.to_csv("decile_data.csv")
     gpdf = pdf.groupby('table_row', as_index=False)
     dist_table = stat_dataframe(gpdf, distribution_vardict['DIST_TABLE_COLUMNS'])
     del pdf['table_row']
@@ -339,6 +348,8 @@ def create_distribution_table(vdf, groupby, distribution_vardict, income_measure
         rownames[100] = 'ALL'
     elif groupby == 'standard_income_bins':
         rownames = distribution_vardict['STANDARD_ROW_NAMES']
+    elif groupby == 'taxable_income_bins':
+        rownames = distribution_vardict['TAXABLE_INCOME_ROW_NAMES']
     else:
         rownames = None
     if rownames:

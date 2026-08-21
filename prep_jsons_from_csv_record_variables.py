@@ -9,7 +9,7 @@ import pandas as pd
 import json
 
 
-df = pd.read_csv("record_variables_input.csv")
+df = pd.read_csv("record_variables_input_pit.csv")
 
 final_json = {'read': {}, 'calc': {}}
 cols = list(df.columns)
@@ -24,7 +24,7 @@ for idx, row in df.iterrows():
     item['desc'] = str(row['desc'])
     #print(row['2015'])
     form = {}
-    form[str('2023')] = str(row['2023'])
+    form[str('2025')] = str(row['2025'])
     item['form']=form
     if (row['field_category']=='read'):
         item['cross_year'] = str(row['cross_year'])

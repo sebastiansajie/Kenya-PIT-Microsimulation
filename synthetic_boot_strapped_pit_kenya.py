@@ -186,3 +186,111 @@ df_weight['WT2030'] = df_weight['WT2024']
 df_weight['WT2031'] = df_weight['WT2024']
 df_weight['WT2032'] = df_weight['WT2024']
 df_weight.to_csv(WEIGHTS_FILE, index=False)
+
+##################################################
+# COMPARE KDEs of Original and Synthetic dataset
+##################################################
+import matplotlib.pyplot as plt
+from scipy.stats import gaussian_kde
+
+# ============================================================
+# FILE PATHS
+# ============================================================
+
+REAL_FILE = INPUT_FILE
+SYN_FILE = OUTPUT_FILE
+
+COL = "emp_income"
+WEIGHT_COL = "weight"
+
+# ============================================================
+# LOAD DATA
+# ============================================================
+real = pd.read_csv(REAL_FILE)
+syn = pd.read_csv(SYN_FILE)
+
+# Clean data
+real[COL] = pd.to_numeric(real[COL], errors="coerce")
+syn[COL] = pd.to_numeric(syn[COL], errors="coerce")
+
+real = real[real[COL].notna()]
+syn = syn[syn[COL].notna()]
+
+# Remove extreme outliers for stable KDE (optional but recommended)
+upper = np.percentile(real[COL], 99.5)
+real = real[real[COL] <= upper]
+syn = syn[syn[COL] <= upper]
+
+# ============================================================
+# HANDLE WEIGHTS
+# ============================================================
+if WEIGHT_COL in real.columns:
+    weights = real[WEIGHT_COL].to_numpy(dtype=float)
+    weights = weights / weights.sum()
+else:
+    weights = None
+
+# Synthetic usually equal-weight then syn_weights = None
+if WEIGHT_COL in syn.columns:
+    syn_weights = syn[WEIGHT_COL].to_numpy(dtype=float)
+    syn_weights = syn_weights / syn_weights.sum()
+else:
+    syn_weights = None
+    
+
+# ============================================================
+# KDE ESTIMATION
+# ============================================================
+real_values = real[COL].to_numpy()
+syn_values = syn[COL].to_numpy()
+
+kde_real = gaussian_kde(real_values, weights=weights)
+kde_syn = gaussian_kde(syn_values, weights=syn_weights)
+
+# Evaluation grid
+x_min = min(real_values.min(), syn_values.min())
+x_max = max(real_values.max(), syn_values.max())
+
+x_grid = np.linspace(x_min, x_max, 500)
+
+y_real = kde_real(x_grid)
+y_syn = kde_syn(x_grid)
+
+# ============================================================
+# PLOT
+# ============================================================
+plt.figure(figsize=(8, 5))
+
+plt.plot(x_grid, y_real, label="Real (weighted KDE)", linewidth=2)
+plt.plot(x_grid, y_syn, label="Synthetic KDE", linewidth=2, linestyle="--")
+
+plt.title("KDE Comparison: emp_income")
+plt.xlabel("emp_income")
+plt.ylabel("Density")
+plt.legend()
+plt.grid(True)
+
+plt.show()
+
+# ============================================================
+# LOG SCALE VERSION (better for income)
+# ============================================================
+real_log = np.log1p(real_values)
+syn_log = np.log1p(syn_values)
+
+kde_real_log = gaussian_kde(real_log, weights=weights)
+kde_syn_log = gaussian_kde(syn_log)
+
+x_grid_log = np.linspace(real_log.min(), real_log.max(), 500)
+
+plt.figure(figsize=(8, 5))
+plt.plot(x_grid_log, kde_real_log(x_grid_log), label="Real (log)")
+plt.plot(x_grid_log, kde_syn_log(x_grid_log), label="Synthetic (log)", linestyle="--")
+
+plt.title("KDE Comparison (log scale): emp_income")
+plt.xlabel("log(1 + emp_income)")
+plt.ylabel("Density")
+plt.legend()
+plt.grid(True)
+
+plt.show()
